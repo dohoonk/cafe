@@ -1,0 +1,15 @@
+<%= simple_form_for @recipe do |f| %>
+  <div class="well">
+    <%= f.input :name %>
+    <%= f.input :bean_name %>
+    <%= f.input :region %>
+    <%= f.input :roaster %>
+    <%= f.input :producer %>
+    <%= f.input :method %>
+    <%= f.input :rating %>
+    <%= f.input :notes %>
+    <%= f.input :grind %>
+    <%= f.input :private %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new recipe_params
     if @recipe.save
-      redirec_to recipes_path, alert: "Delicious"
+      redirect_to recipes_path, alert: "Delicious"
     else
       flash[:alert] = "Failed to create"
       render :new
