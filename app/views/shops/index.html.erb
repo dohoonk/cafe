@@ -1,13 +1,8 @@
 <h1>Shops</h1>
 
-<%= @shops.each do |f| %>
-  <%= f. %>
+<% @shops.each do |f| %>
+  <%= f.name %>
+  <%= f.address %>
+  <%= f.website %>
+  <%= f.phone_number %>
 <% end %>
-
-
-t.integer  "phone_number"
-t.string   "address"
-t.string   "website"
-t.datetime "created_at",   null: false
-t.datetime "updated_at",   null: false
-t.integer  "user_id"
