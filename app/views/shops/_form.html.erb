@@ -1,0 +1,9 @@
+<%= simple_form_for @shop do |f| %>
+  <div class="well">
+    <%= f.input :name %>
+    <%= f.input :phone_number %>
+    <%= f.input :address %>
+    <%= f.input :website %>
+    <%= f.button :submit, class:"btn btn-primary" %>
+  </div>
+<% end %>

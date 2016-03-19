@@ -1,6 +1,6 @@
 class BeansController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :find_bean, only: [:show,:destroy]
+  before_action :find_bean, only: [:show,:destroy,:edit,:update]
 
   def new
     @bean = Bean.new
@@ -17,15 +17,26 @@ class BeansController < ApplicationController
   end
 
   def index
-    @beans = Beans.all
+    @beans = Bean.all
   end
 
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @bean.update bean_params
+      redirect_to bean_path(@bean), alert: "Updated"
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @bean.destroy
-    redirec_to beans_path
+    redirect_to beans_path
   end
 
   private
@@ -35,6 +46,6 @@ class BeansController < ApplicationController
   end
 
   def find_bean
-    find_bean = Bean.find params[:id]
+    @bean = Bean.find params[:id]
   end
 end

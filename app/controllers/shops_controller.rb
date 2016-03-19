@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :find_shop, only: [:show,:destroy]
+  before_action :find_shop, only: [:show,:destroy,:update,:edit]
 
   def new
     @shop = Shop.new
@@ -20,6 +20,18 @@ class ShopsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @shop.update shop_params
+      redirect_to shop_path(@shop), alert: "Updated"
+    else
+      flahs[:alert] = "Failed to update"
+      render :edit
+    end
   end
 
   def destroy
