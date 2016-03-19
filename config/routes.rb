@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   resources :users, only: [:show,:new,:create] do
-    resources :cafes, only: [:create,:destroy]
+    resources :shops, only: [:new,:create,:destroy]
   end
   resources :sessions, only: [:new,:create] do
     delete :destroy, on: :collection
   end
-  resources :cafes, only: [:new,:show,:index]
+  resources :shops, only: [:new,:show,:index]
 
   resources :beans
   resources :tastes

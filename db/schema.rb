@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319185726) do
+ActiveRecord::Schema.define(version: 20160319214347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,17 +27,6 @@ ActiveRecord::Schema.define(version: 20160319185726) do
   end
 
   add_index "beans", ["user_id"], name: "index_beans_on_user_id", using: :btree
-
-  create_table "cafes", force: :cascade do |t|
-    t.integer  "phone_number"
-    t.string   "address"
-    t.string   "website"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "user_id"
-  end
-
-  add_index "cafes", ["user_id"], name: "index_cafes_on_user_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
@@ -58,6 +47,17 @@ ActiveRecord::Schema.define(version: 20160319185726) do
 
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
+  create_table "shops", force: :cascade do |t|
+    t.integer  "phone_number"
+    t.string   "address"
+    t.string   "website"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+  end
+
+  add_index "shops", ["user_id"], name: "index_shops_on_user_id", using: :btree
+
   create_table "tastes", force: :cascade do |t|
     t.integer  "sweet"
     t.integer  "fruity"
@@ -77,6 +77,6 @@ ActiveRecord::Schema.define(version: 20160319185726) do
   end
 
   add_foreign_key "beans", "users"
-  add_foreign_key "cafes", "users"
   add_foreign_key "recipes", "users"
+  add_foreign_key "shops", "users"
 end

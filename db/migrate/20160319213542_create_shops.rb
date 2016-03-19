@@ -1,6 +1,6 @@
-class CreateCafes < ActiveRecord::Migration
+class CreateShops < ActiveRecord::Migration
   def change
-    create_table :cafes do |t|
+    create_table :shops do |t|
       t.integer :phone_number
       t.string :address
       t.string :website
