@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317030224) do
+ActiveRecord::Schema.define(version: 20160319185726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,15 +22,22 @@ ActiveRecord::Schema.define(version: 20160317030224) do
     t.string   "taste_profile"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "producer"
+    t.integer  "user_id"
   end
 
-  create_table "names", force: :cascade do |t|
+  add_index "beans", ["user_id"], name: "index_beans_on_user_id", using: :btree
+
+  create_table "cafes", force: :cascade do |t|
     t.integer  "phone_number"
     t.string   "address"
     t.string   "website"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "user_id"
   end
+
+  add_index "cafes", ["user_id"], name: "index_cafes_on_user_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
@@ -41,6 +48,21 @@ ActiveRecord::Schema.define(version: 20160317030224) do
     t.string   "taste"
     t.integer  "rating"
     t.text     "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "bean_name"
+    t.string   "grind"
+    t.boolean  "private"
+    t.integer  "user_id"
+  end
+
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
+
+  create_table "tastes", force: :cascade do |t|
+    t.integer  "sweet"
+    t.integer  "fruity"
+    t.integer  "chocolate"
+    t.integer  "bitter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,4 +76,7 @@ ActiveRecord::Schema.define(version: 20160317030224) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "beans", "users"
+  add_foreign_key "cafes", "users"
+  add_foreign_key "recipes", "users"
 end
