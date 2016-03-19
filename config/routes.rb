@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :users, only: [:show,:new,:create]
-  resources :cafes
+  resources :users, only: [:show,:new,:create] do
+    resources :cafes, only: [:create,:destroy]
+  end
+  resources :cafes, only: [:new,:show,:index]
+  
   resources :beans
   resources :tastes
   # The priority is based upon order of creation: first created -> highest priority.
