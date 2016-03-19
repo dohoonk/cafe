@@ -1,0 +1,9 @@
+<h1>New Bean</h1>
+<%= simple_form_for @bean do |f| %>
+  <div class="well">
+    <%= f.input :name %>
+    <%= f.input :region %>
+    <%= f.input :producer %>
+    <%= f.button :submit, class: "btn btn-primary"  %>
+  </div>
+<% end %>
