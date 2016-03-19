@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      redirect_to root, alert: "Account Created"
+      session[:user_id] = @user.id
+      redirect_to root_path, alert: "Account Created"
     else
       flash[:alert] = "Failed to create an account"
       render :new
