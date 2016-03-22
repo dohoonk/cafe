@@ -15,10 +15,11 @@ class CommentsController < ApplicationController
 
   def destroy
     @user = current_user
-    @favorite = @favorable.favorites.where(favorer: current_user).first
-    @favorite.destroy
+    @comment = Comment.find params[:id]
+    back = @comment.commentable
+    @comment.destroy
     respond_to do |format|
-      format.html { redirect_to :back }
+      format.html { redirect_to back }
       format.js
     end
   end
