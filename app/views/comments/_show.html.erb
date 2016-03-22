@@ -1,5 +1,6 @@
 <% @commentable.comments.each do |com|%>
   <div class="well">
-    <%=com.body%>
+    <%= com.body %>
+    <%= link_to "Delete", comment_path(com), method: :delete %>
   </div>
 <% end %>

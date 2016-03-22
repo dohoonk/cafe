@@ -14,9 +14,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @commentable.destroy
-    folder_name = @commentable.class.to_s.underscore.pluralize
-    render "/#{folder_name}/show"
+    @user = current_user
+    @favorite = @favorable.favorites.where(favorer: current_user).first
+    @favorite.destroy
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   private
