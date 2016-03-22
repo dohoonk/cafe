@@ -39,6 +39,7 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.3.3.1)
       execjs
+    awesome_print (1.6.1)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -66,9 +67,13 @@ GEM
       railties (>= 3.0.0)
     faker (1.6.3)
       i18n (~> 0.5)
+    ffi (1.9.10)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hirb (0.7.3)
     i18n (0.7.0)
+    interactive_editor (0.0.10)
+      spoon (>= 0.0.1)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -148,6 +153,8 @@ GEM
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    spoon (0.0.4)
+      ffi
     spring (1.6.4)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -176,12 +183,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   bcrypt (~> 3.1.7)
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
   factory_girl_rails
   faker
+  hirb
+  interactive_editor
   jbuilder (~> 2.0)
   jquery-rails
   pg (~> 0.15)

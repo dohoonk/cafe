@@ -21,6 +21,8 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @commentable = @recipe
+    @comment = Comment.new
   end
 
   def edit

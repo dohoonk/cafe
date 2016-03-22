@@ -3,3 +3,19 @@
 <%= @bean.region %>
 <%= @bean.producer %>
 <hr>
+
+<%= render "comments/form" %>
+<%= render "comments/show" %>
+
+<!-- <%= simple_form_for [@bean,@comment] do |f| %>
+  <%= f.input :body %>
+  <%= f.button :submit, class:"btn btn-primary" %>
+<%end%>
+
+<hr>
+
+<% @bean.comments.each do |com|%>
+  <div class="well">
+    <%=com.body%>
+  </div>
+<% end %> -->

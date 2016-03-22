@@ -5,10 +5,16 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new,:create] do
     delete :destroy, on: :collection
   end
-  resources :shops
 
-  resources :beans
-  resources :recipes
+  resources :shops do
+    resources :comments, only: [:create,:destroy]
+  end
+  resources :beans do
+    resources :comments, only: [:create,:destroy]
+  end
+  resources :recipes do
+    resources :comments, only: [:create,:destroy]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

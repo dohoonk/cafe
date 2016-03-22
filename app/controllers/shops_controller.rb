@@ -20,6 +20,8 @@ class ShopsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @commentable = @shop
   end
 
   def edit

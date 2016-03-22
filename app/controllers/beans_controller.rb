@@ -21,6 +21,8 @@ class BeansController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @commentable = @bean
   end
 
   def edit
