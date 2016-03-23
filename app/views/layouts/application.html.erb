@@ -18,6 +18,7 @@
                  data: {confirm: "are you sure you want to log out?"}%></li>
     <% else %>
       <li role="presentation"><%= link_to "Login", new_session_path %></li>
+      <li role="presentation"><%= link_to "Sign in with Twitter", sign_in_with_twitter_path %></li>
       <li role="presentation"><%= link_to "Sign Up", new_user_path %></li>
     <% end %>
   </ul>

@@ -16,6 +16,11 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :comments, only: [:create]
   end
+
+  # Twitter Routes
+  get "/auth/twitter", as: :sign_in_with_twitter
+  get "/auth/:provider/callback" => "callbacks#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
