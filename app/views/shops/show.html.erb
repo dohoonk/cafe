@@ -10,3 +10,29 @@
 <hr>
 <%= render "comments/form" %>
 <%= render "comments/show" %>
+
+<% if @shop.longitude && @shop.latitude %>
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+<% end %>
+<script>
+ handler = Gmaps.build('Google');
+ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+   markers = handler.addMarkers([
+      {
+       "lat": <%= @shop.latitude %>,
+       "lng": <%= @shop.longitude %>,
+       "picture": {
+         "url": "http://icons.iconarchive.com/icons/sonya/swarm/48/Coffee-icon.png",
+         "width":  50,
+         "height": 50
+       },
+       "infowindow": "hello codecore!"
+     }
+   ]);
+   handler.bounds.extendWith(markers);
+   handler.fitMapToBounds();
+ });
+
+ </script>

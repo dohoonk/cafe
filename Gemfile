@@ -27,6 +27,9 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'omniauth-twitter'
 gem 'autoprefixer-rails'
+gem "geocoder"
+gem 'underscore-rails'
+gem 'gmaps4rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
