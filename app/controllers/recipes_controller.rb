@@ -32,7 +32,6 @@ class RecipesController < ApplicationController
 
   def update
     can_authorize(:update,@recipe)
-    @recipe.user_id = current_user.id
     if @recipe.update recipe_params
       redirect_to recipe_path(@recipe), alert: "Super Delicious"
     else

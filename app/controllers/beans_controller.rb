@@ -8,7 +8,7 @@ class BeansController < ApplicationController
 
   def create
     @bean = Bean.new bean_params
-    @bean.user = current_user
+    @bean.user_id = current_user.id
     if @bean.save
       redirec_to beans_path, alert: "Bean created"
     else

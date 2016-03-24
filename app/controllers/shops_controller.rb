@@ -8,6 +8,7 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.new shop_params
+    @shop.user_id = current_user.id
     if @shop.save
       redirect_to shops_path
     else
@@ -30,7 +31,6 @@ class ShopsController < ApplicationController
 
   def update
     can_authorize(:update,@shop)
-    @shop.user = current_user
     if @shop.update shop_params
       redirect_to shop_path(@shop), alert: "Updated"
     else
