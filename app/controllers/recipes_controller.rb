@@ -8,6 +8,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new recipe_params
+    @recipe.user_id = current_user.id
     if @recipe.save
       redirect_to recipes_path, alert: "Delicious"
     else
@@ -26,9 +27,12 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    can_authorize(:edit,@recipe)
   end
 
   def update
+    can_authorize(:update,@recipe)
+    @recipe.user_id = current_user.id
     if @recipe.update recipe_params
       redirect_to recipe_path(@recipe), alert: "Super Delicious"
     else
@@ -38,6 +42,7 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    can_authorize(:destroy,@recipe)
     @recipe.destroy
     redirect_to recipes_path
   end

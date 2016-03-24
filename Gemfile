@@ -30,6 +30,8 @@ gem 'autoprefixer-rails'
 gem "geocoder"
 gem 'underscore-rails'
 gem 'gmaps4rails'
+gem 'cancancan'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

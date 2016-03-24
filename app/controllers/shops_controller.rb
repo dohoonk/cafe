@@ -25,9 +25,12 @@ class ShopsController < ApplicationController
   end
 
   def edit
+    can_authorize(:edit,@shop)
   end
 
   def update
+    can_authorize(:update,@shop)
+    @shop.user = current_user
     if @shop.update shop_params
       redirect_to shop_path(@shop), alert: "Updated"
     else
@@ -37,6 +40,7 @@ class ShopsController < ApplicationController
   end
 
   def destroy
+    can_authorize(:destroy,@shop)
     @shop.destroy
   end
 

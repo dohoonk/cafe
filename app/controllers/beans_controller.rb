@@ -8,6 +8,7 @@ class BeansController < ApplicationController
 
   def create
     @bean = Bean.new bean_params
+    @bean.user = current_user
     if @bean.save
       redirec_to beans_path, alert: "Bean created"
     else
@@ -26,9 +27,11 @@ class BeansController < ApplicationController
   end
 
   def edit
+    can_authorize(:edit, @bean)
   end
 
   def update
+    can_authorize(:update, @bean)
     if @bean.update bean_params
       redirect_to bean_path(@bean), alert: "Updated"
     else
@@ -37,6 +40,7 @@ class BeansController < ApplicationController
   end
 
   def destroy
+    can_authorize(:destroy, @bean)
     @bean.destroy
     redirect_to beans_path
   end

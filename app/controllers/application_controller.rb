@@ -20,5 +20,8 @@ class ApplicationController < ActionController::Base
   def sign_in(user)
     session[:user_id] = user.id
   end
-  
+
+  def can_authorize(action,param)
+    redirect_to root_path, alert: "You are not authorized" and return unless can? action, param
+  end
 end

@@ -9,5 +9,11 @@
 <%= @recipe.notes %>
 <%= @recipe.grind %>
 <hr>
+<% if can? :edit, @recipe %>
+  <%= link_to "Edit", edit_recipe_path(@recipe) %>
+<% end %>
+<% if can? :delete, @recipe %>
+  <%= link_to "Delete", recipe_path(@recipe), method: :delete %>
+<% end %>
 <%= render "comments/form" %>
 <%= render "comments/show" %>

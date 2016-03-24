@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new comment_params
     @comment.commentable = @commentable
+    @comment.user_id = current_user
     if @comment.save
       redirect_to @commentable, notice: "Comment created"
     else
@@ -14,6 +15,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    can_authorize(:destroy,@comment)
     @user = current_user
     @comment = Comment.find params[:id]
     back = @comment.commentable
