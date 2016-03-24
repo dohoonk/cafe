@@ -10,7 +10,7 @@ class BeansController < ApplicationController
     @bean = Bean.new bean_params
     @bean.user_id = current_user.id
     if @bean.save
-      redirec_to beans_path, alert: "Bean created"
+      redirect_to beans_path, alert: "Bean created"
     else
       flash[:alert] = "Unable to create been"
       render :new

@@ -1,6 +1,8 @@
 <% @commentable.comments.each do |com|%>
   <div class="well">
     <%= com.body %>
-    <%= link_to "Delete", comment_path(com), method: :delete %>
+    <% if user_signed_in? && com.user_id == current_user.id %>
+      <%= link_to "Delete", comment_path(com), method: :delete %>
+    <% end %>
   </div>
 <% end %>

@@ -4,18 +4,12 @@
 <%= @bean.producer %>
 <hr>
 
+<% if can? :edit, @bean %>
+  <%= link_to "Edit", edit_bean_path(@bean) %>
+<% end %>
+<% if can? :delete, @bean %>
+  <%= link_to "Delete", bean_path(@bean), method: :delete %>
+<% end %>
+
 <%= render "comments/form" %>
 <%= render "comments/show" %>
-
-<!-- <%= simple_form_for [@bean,@comment] do |f| %>
-  <%= f.input :body %>
-  <%= f.button :submit, class:"btn btn-primary" %>
-<%end%>
-
-<hr>
-
-<% @bean.comments.each do |com|%>
-  <div class="well">
-    <%=com.body%>
-  </div>
-<% end %> -->

@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    can_authorize(:destroy,@comment)
     @user = current_user
     @comment = Comment.find params[:id]
     back = @comment.commentable

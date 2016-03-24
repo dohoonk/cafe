@@ -8,6 +8,13 @@
 <br>
 <%= @shop.phone_number %>
 <hr>
+<% if can? :edit, @shop %>
+  <%= link_to "Edit", edit_shop_path(@shop) %>
+<% end %>
+<% if can? :delete, @shop %>
+  <%= link_to "Delete", shop_path(@shop), method: :delete %>
+<% end %>
+
 <%= render "comments/form" %>
 <%= render "comments/show" %>
 
