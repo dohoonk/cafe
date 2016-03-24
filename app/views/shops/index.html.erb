@@ -1,8 +1,9 @@
 <h1>Shops</h1>
 
 <% @shops.each do |f| %>
-  <%= f.name %>
+  <%= link_to f.name, shop_path(f) %>
   <%= f.address %>
   <%= f.website %>
   <%= f.phone_number %>
+  <hr>
 <% end %>

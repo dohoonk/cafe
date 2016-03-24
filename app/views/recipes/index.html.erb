@@ -1,7 +1,7 @@
 <h1>Recipes</h1>
 
 <% @recipes.each do |f| %>
-  <%= f.name %>
+  <%= link_to f.name, recipe_path(f) %>
   <%= f.bean_name %>
   <%= f.region %>
   <%= f.roaster %>
@@ -10,4 +10,5 @@
   <%= f.rating %>
   <%= f.notes %>
   <%= f.grind %>
+  <hr>
 <% end %>

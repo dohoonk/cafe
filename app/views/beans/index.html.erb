@@ -1,7 +1,8 @@
 <h1>Beans</h1>
 
 <% @beans.each do |f| %>
-  <%= f.name %>
+  <%= link_to f.name, bean_path(f) %>
   <%= f.region %>
   <%= f.producer %>
+  <hr>
 <% end %>
