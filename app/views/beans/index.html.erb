@@ -1,4 +1,5 @@
 <h1>Beans</h1>
+<%= render "/layouts/jumbotron" %>
 
 <% @beans.each do |f| %>
   <%= link_to f.name, bean_path(f) %>

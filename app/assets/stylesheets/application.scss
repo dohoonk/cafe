@@ -1,6 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+    background-color: #edefed;
+}
+ // need to change
+
+ // header
 .header-container {
     min-height: 600px;
     padding-bottom: 0px;
@@ -8,8 +14,12 @@
     position: relative;
     overflow: hidden;
 }
+#home-navbar a{
+  background-color: transparent;
+  color: white;
+}
 
-  video {
+video {
     background: #222;
     width:100%;
     background-size: cover;
@@ -19,3 +29,91 @@
     top: 0;
     left: 0;
 }
+// end of header
+
+.circle {
+    border: 2px solid grey;
+    float: none;
+    height: 150px;
+    width: 250px;
+    border-radius: 10px;
+    margin: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+// recipes/cafe/beans display
+
+.home-picture{
+  border: 2px solid grey;
+  float: none;
+  height: 500px;
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+// free trade image
+
+// search bar
+.container-search{
+  padding: 10px;
+  margin: 5px;
+}
+
+.search-box {
+  display: inline-block;
+  width: 100%;
+  border-radius: 15px;
+  padding: 1px 55px 4px 15px;
+  position: relative;
+  background: #fff;
+  border: 1px solid #ddd;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+.search-box.hovered, .search-box:hover, .search-box:active {
+  border: 1px solid black;
+}
+
+.search-box input[type=text] {
+  border: none;
+  box-shadow: none;
+  display: inline-block;
+  padding: 0;
+  background: transparent;
+}
+
+.search-box input[type=text]:hover, .search-box input[type=text]:focus, .search-box input[type=text]:active {
+  box-shadow: none;
+}
+
+.search-box .search-btn {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  color: #aaa;
+  font-size: 21px;
+  padding: 5px 10px 1px;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+.search-box .search-btn:hover {
+  color: black;
+}
+// search bar end
+
+
+.footer {
+  border: 2px solid black;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  min-height: 100px
+}
+// footer

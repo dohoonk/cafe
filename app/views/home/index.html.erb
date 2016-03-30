@@ -1,15 +1,17 @@
-
+<!-- header-container -->
   <div class="header-container">
     <div class="video-container">
-      <video class="video" autoplay loop>
+      <video class="video" autoplay loop muted>
         <source src="coffee.mp4" type="video/mp4" />
         <source src="coffee.ogg" type="video/ogg" />
+        <source src="coffee2.mp4" type="video/mp4" />
+        <source src="coffee2.ogg" type="video/ogg" />
         Your browser does not support the video tag.
       </video>
     </div> <!-- end of video-container -->
-    <div class="container" id="navbar">
+    <div class="container" id="home-navbar">
       <ul class="nav nav-pills">
-        <li role="presentation"><%= link_to "Home", root_path %></li>
+        <li role="presentation"><%= link_to "Home", root_path%></li>
         <li role="presentation"><%= link_to "Bean", beans_path %></li>
         <li role="presentation"><%= link_to "Shop", shops_path %></li>
         <li role="presentation"><%= link_to "Recipe", recipes_path %></li>
@@ -23,5 +25,91 @@
           <li role="presentation" class="navbar-right"><%= link_to "Sign Up", new_user_path %></li>
         <% end %>
       </ul>
+
     </div>
-  <div> <!-- end of header-container -->
+  </div>
+  <!-- end of header-container -->
+<!-- search -->
+  <div class='container-search'>
+  <div class='row'>
+    <div class='col-md-8'>
+      <div class='search-box'>
+        <form class='search-form'>
+          <input class='form-control' placeholder='ex: Look for Recipes, Cafes or Beans' type='text'>
+          <button class='btn btn-link search-btn'>
+            <i class='glyphicon glyphicon-search'></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of search -->
+  <!-- popular shops/recipes -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="circle"></div>
+      </div>
+      <div class="col-lg-3">
+        <div class="circle"></div>
+      </div>
+      <div class="col-lg-3">
+        <div class="circle"></div>
+      </div>
+      <div class="col-lg-3">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+  </div>
+</div>
+<!-- end of popular shops/recipes -->
+
+<!-- big pictures -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="home-picture">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of big picture -->
+
+<!-- Footer-cotainer -->
+<div class="container-fluid">
+  <div class="footer">
+  </div>
+</div>
+<!-- End of footer-container -->
