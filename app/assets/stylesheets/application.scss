@@ -109,11 +109,34 @@ video {
 // search bar end
 
 
-.footer {
+.container-footer {
   border: 2px solid black;
+  width: 100%;
   margin-top: 10px;
   margin-left: 0px;
   margin-right: 0px;
-  min-height: 100px
+  min-height: 100px;
 }
 // footer
+
+
+// Bean Index page
+
+#bean-index {
+  border: 2px solid black;
+  width: 100%;
+  min-height: 500px;
+  margin: 0px 0px 5px 0px;
+}
+
+#bean-index-outer {
+  border: 2px solid black;
+  width: 100%;
+  min-height: 500px;
+  margin: 10px 10px 5px 10px;
+}
+
+#bean-index-self {
+  border: 2px solid black;
+  min-height: 250px;
+}

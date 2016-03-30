@@ -1,9 +1,18 @@
-<h1>Beans</h1>
-<%= render "/layouts/jumbotron" %>
+<!-- Header -->
+<div class="cotainer" id="bean-index">
+</div>
+<!-- Header end -->
 
-<% @beans.each do |f| %>
-  <%= link_to f.name, bean_path(f) %>
-  <%= f.region %>
-  <%= f.producer %>
-  <hr>
-<% end %>
+<div class="cotainer" id="bean-index-outer">
+  <div class="row">
+    <% @beans.each do |f| %>
+      <div class="col-lg-3">
+        <div class="span" id="bean-index-self">
+          <%= link_to f.name, bean_path(f) %>
+          <%= f.region %>
+          <%= f.producer %>
+      </div>
+      </div>
+    <% end %>
+  </div>
+</div>
