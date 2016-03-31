@@ -1,4 +1,8 @@
 class Bean < ActiveRecord::Base
+  # friendly_id
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
+
   # Carrierwave
   mount_uploader :beanimg, BeanimgUploader
   belongs_to :user

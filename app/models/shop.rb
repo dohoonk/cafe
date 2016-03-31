@@ -1,5 +1,8 @@
 class Shop < ActiveRecord::Base
-  
+  # friendly_id
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
+
   # Geocoder
   geocoded_by :address
   after_validation :geocode

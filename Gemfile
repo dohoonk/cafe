@@ -32,7 +32,8 @@ gem 'underscore-rails'
 gem 'gmaps4rails'
 gem 'cancancan'
 gem 'carrierwave'
-gem "mini_magick"
+gem 'mini_magick'
+gem 'friendly_id'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

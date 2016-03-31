@@ -47,10 +47,10 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    shop_params = params.require(:shop).permit(:phone_number,:name,:address,:website,:user_id,:cafeimg)
+    shop_params = params.require(:shop).permit(:phone_number,:name,:address,:website,:user_id,:cafeimg,:slug)
   end
 
   def find_shop
-    @shop = Shop.find params[:id]
+    @shop = Shop.friendly.find params[:id]
   end
 end

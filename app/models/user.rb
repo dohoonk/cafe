@@ -1,7 +1,13 @@
 class User < ActiveRecord::Base
-  has_secure_password
+  # friendly_id
+  extend FriendlyId
+  friendly_id :first_name, use: [:slugged, :history]
 
+  # Carrierwave
   mount_uploader :avatar, AvatarUploader
+
+  # bcrypt
+  has_secure_password
 
   has_many :shops, dependent: :destroy
   has_many :recipes, dependent: :destroy
