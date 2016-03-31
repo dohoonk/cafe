@@ -24,6 +24,7 @@ class RecipesController < ApplicationController
   def show
     @commentable = @recipe
     @comment = Comment.new
+    @recipe_like = @recipe.recipe_like_for(current_user)
   end
 
   def edit

@@ -10,6 +10,14 @@
 <%= @recipe.notes %>
 <%= @recipe.grind %>
 <hr>
+<!-- likes -->
+<% if @recipe_like.present? && @recipe_like.persisted? %>
+  <%= link_to "Un-Like", recipe_recipe_like_path(@recipe, @recipe_like), method: :delete %>
+<% else %>
+  <%= link_to "Like", recipe_recipe_likes_path(@recipe), method: :post %>
+<% end %>
+
+<!-- edit/delete -->
 <% if can? :edit, @recipe %>
   <%= link_to "Edit", edit_recipe_path(@recipe) %>
 <% end %>
