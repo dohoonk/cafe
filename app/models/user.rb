@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
-  # Twitter raw-data
-  serialize :twitter_raw_data
+
+  mount_uploader :avatar, AvatarUploader
 
   has_many :shops, dependent: :destroy
   has_many :recipes, dependent: :destroy
@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
             format:  /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
             unless: :from_omniauth?
   validates :password, presence: true, length: { minimum: 5 }
+
+  # Twitter raw-data
+  serialize :twitter_raw_data
 
   def self.find_from_omniauth(omniauth_data)
   User.where(provider: omniauth_data["provider"],

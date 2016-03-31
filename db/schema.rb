@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323204509) do
+ActiveRecord::Schema.define(version: 20160331015146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160323204509) do
     t.datetime "updated_at",    null: false
     t.string   "producer"
     t.integer  "user_id"
+    t.string   "beanimg"
   end
 
   add_index "beans", ["user_id"], name: "index_beans_on_user_id", using: :btree
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160323204509) do
     t.string   "grind"
     t.boolean  "private"
     t.integer  "user_id"
+    t.string   "recipeimg"
   end
 
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
@@ -69,6 +71,7 @@ ActiveRecord::Schema.define(version: 20160323204509) do
     t.string   "address"
     t.float    "longitude"
     t.float    "latitude"
+    t.string   "cafeimg"
   end
 
   add_index "shops", ["user_id"], name: "index_shops_on_user_id", using: :btree
@@ -94,6 +97,7 @@ ActiveRecord::Schema.define(version: 20160323204509) do
     t.string   "twitter_consumer_token"
     t.string   "twitter_consumer_secret"
     t.string   "twitter_raw_data"
+    t.string   "avatar"
   end
 
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", using: :btree

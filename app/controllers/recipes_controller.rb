@@ -49,7 +49,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    recipe_params = params.require(:recipe).permit(:name,:region,:roaster,:producer,:method,:rating,:notes,:grind,:private,:user_id)
+    recipe_params = params.require(:recipe).permit(:name,:region,:roaster,:producer,:method,:rating,:notes,:grind,:private,:user_id,:recipeimg)
   end
 
   def find_recipe

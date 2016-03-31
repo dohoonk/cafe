@@ -31,6 +31,8 @@ gem "geocoder"
 gem 'underscore-rails'
 gem 'gmaps4rails'
 gem 'cancancan'
+gem 'carrierwave'
+gem "mini_magick"
 
 # Use Unicorn as the app server
 # gem 'unicorn'
