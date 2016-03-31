@@ -23,6 +23,7 @@ class ShopsController < ApplicationController
   def show
     @comment = Comment.new
     @commentable = @shop
+    @shop_like = @shop.shop_like_for(current_user)
   end
 
   def edit

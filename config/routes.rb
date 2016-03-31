@@ -29,6 +29,11 @@ Rails.application.routes.draw do
     resources :recipe_likes, only: [:create,:destroy]
   end
 
+  resources :shops, only: [] do
+    resources :shop_likes, only: [:create,:destroy]
+  end
+
+
   # Twitter Routes
   get "/auth/twitter", as: :sign_in_with_twitter
   get "/auth/:provider/callback" => "callbacks#index"

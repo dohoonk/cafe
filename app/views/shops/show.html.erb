@@ -11,6 +11,14 @@
 <br>
 <%= @shop.phone_number %>
 <hr>
+<!-- likes -->
+<% if @shop_like.present? && @shop_like.persisted? %>
+  <%= link_to "Un-Like", shop_shop_like_path(@shop, @shop_like), method: :delete %>
+<% else %>
+  <%= link_to "Like", shop_shop_likes_path(@shop), method: :post %>
+<% end %>
+
+<!-- edit/delete -->
 <% if can? :edit, @shop %>
   <%= link_to "Edit", edit_shop_path(@shop) %>
 <% end %>

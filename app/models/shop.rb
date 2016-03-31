@@ -13,8 +13,16 @@ class Shop < ActiveRecord::Base
   belongs_to :user
   has_many :comments, as: :commentable
 
+  #likes
+  has_many :shop_likes, dependent: :destroy
+  has_many :users, through: :shop_likes
+
   validates :name, presence: true
   validates :phone_number, presence: true
   validates :address, presence: true
   validates :website, presence: true
+
+  def shop_like_for(user)
+    shop_likes.find_by_user_id(user)
+  end
 end

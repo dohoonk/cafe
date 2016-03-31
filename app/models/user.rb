@@ -21,6 +21,9 @@ class User < ActiveRecord::Base
   has_many :recipe_likes, dependent: :destroy
   has_many :like_recipes, through: :recipe_likes, source: :recipe
 
+  has_many :shop_likes, dependent: :destroy
+  has_many :like_shops, through: :shop_likes, source: :shop
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true,
