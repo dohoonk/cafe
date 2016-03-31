@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
   has_many :beans, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  #likes
+  has_many :bean_likes, dependent: :destroy
+  has_many :like_beans, through: :bean_likes, source: :bean
+
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true,

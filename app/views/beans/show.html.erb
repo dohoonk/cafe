@@ -4,6 +4,11 @@
 <%= @bean.region %>
 <%= @bean.producer %>
 <hr>
+<% if @bean_like.present? && @bean_like.persisted? %>
+  <%= link_to "Un-Like", bean_bean_like_path(@bean, @bean_like), method: :delete %>
+<% else %>
+  <%= link_to "Like", bean_bean_likes_path(@bean), method: :post %>
+<% end %>
 
 <% if can? :edit, @bean %>
   <%= link_to "Edit", edit_bean_path(@bean) %>

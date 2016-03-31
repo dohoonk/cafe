@@ -7,14 +7,22 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [:destroy]
+
   resources :shops do
     resources :comments, only: [:create]
   end
+
   resources :beans do
     resources :comments, only: [:create]
   end
+
   resources :recipes do
     resources :comments, only: [:create]
+  end
+
+  # likes
+  resources :beans, only: [] do
+    resources :bean_likes, only: [:create,:destroy]
   end
 
   # Twitter Routes

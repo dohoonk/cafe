@@ -24,6 +24,7 @@ class BeansController < ApplicationController
   def show
     @comment = Comment.new
     @commentable = @bean
+    @bean_like = @bean.bean_like_for(current_user)
   end
 
   def edit

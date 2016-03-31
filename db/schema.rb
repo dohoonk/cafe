@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331035759) do
+ActiveRecord::Schema.define(version: 20160331041653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bean_likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "bean_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bean_likes", ["bean_id"], name: "index_bean_likes_on_bean_id", using: :btree
+  add_index "bean_likes", ["user_id"], name: "index_bean_likes_on_user_id", using: :btree
 
   create_table "beans", force: :cascade do |t|
     t.string   "name"
@@ -123,6 +133,8 @@ ActiveRecord::Schema.define(version: 20160331035759) do
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", using: :btree
 
+  add_foreign_key "bean_likes", "beans"
+  add_foreign_key "bean_likes", "users"
   add_foreign_key "beans", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "recipes", "users"
