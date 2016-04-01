@@ -1,11 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-    background-color: #edefed;
-}
- // need to change
-
  // header
 .header-container {
     min-height: 600px;
@@ -123,20 +118,24 @@ video {
 // Bean Index page
 
 #bean-index {
-  border: 2px solid black;
-  width: 100%;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 0px 25px 5px 25px;
   min-height: 500px;
-  margin: 0px 0px 5px 0px;
+  background-image: url("bean-header2.jpg");
+  opacity: 80%;
 }
 
 #bean-index-outer {
-  border: 2px solid black;
   width: 100%;
   min-height: 500px;
-  margin: 10px 10px 5px 10px;
+  margin: 10px 25px 5px 25px;
 }
 
 #bean-index-self {
   border: 2px solid black;
   min-height: 250px;
+  max-width: 200px;
+  margin: auto;
+  margin-bottom: 10px;
 }

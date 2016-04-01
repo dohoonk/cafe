@@ -1,17 +1,36 @@
 <!-- Header -->
-<div class="cotainer" id="bean-index">
-</div>
+<div class="cotainer" id="bean-index"></div>
 <!-- Header end -->
+
+<!-- search -->
+  <div class='container-search'>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+      <div class='search-box'>
+        <form class='search-form'>
+          <input class='form-control' placeholder='ex: Look for Recipes, Cafes or Beans' type='text'>
+          <button class='btn btn-link search-btn'>
+            <i class='glyphicon glyphicon-search'></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of search -->
 
 <div class="cotainer" id="bean-index-outer">
   <div class="row">
     <% @beans.each do |f| %>
       <div class="col-lg-3">
         <div class="span" id="bean-index-self">
+          <%= image_tag f.beanimg_url(:thumb).to_s %>
+        </div>
+        <div class="span" id="bean-index-self">
           <%= link_to f.name, bean_path(f) %>
           <%= f.region %>
           <%= f.producer %>
-      </div>
+        </div>
       </div>
     <% end %>
   </div>
