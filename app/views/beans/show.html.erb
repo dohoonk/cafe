@@ -1,9 +1,14 @@
 <h1>These are the beans you are looking for</h1>
-<%= image_tag @bean.beanimg_url.to_s %>
-<%= @bean.name %>
-<%= @bean.region %>
-<%= @bean.producer %>
-<hr>
+<div class="container">
+  <div class="bean-show-img">
+    <%= image_tag @bean.beanimg_url.to_s %>
+  </div>
+  <div class="bean-show-cont">
+    <h1>Bean: <%= @bean.name %></h1>
+    <h3>Region: <%= @bean.region %></h3>
+    <h3>Producer: <%= @bean.producer %></h3>
+  </div>
+</div>
 <!-- likes -->
 <% if @bean_like.present? && @bean_like.persisted? %>
   <%= link_to "Un-Like", bean_bean_like_path(@bean, @bean_like), method: :delete %>

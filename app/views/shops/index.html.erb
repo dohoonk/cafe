@@ -1,9 +1,39 @@
-<h1>Shops</h1>
+<div class="wrapper">
+<!-- Header -->
+<div class="cotainer" id="bean-index"></div>
+<!-- Header end -->
+  <!-- search -->
+    <div class='container-search'>
+    <div class='row'>
+      <div class='col-md-8 col-md-offset-2'>
+        <div class='search-box'>
+          <form class='search-form'>
+            <input class='form-control' placeholder='ex: Look for Recipes, Cafes or Beans' type='text'>
+            <button class='btn btn-link search-btn'>
+              <i class='glyphicon glyphicon-search'></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of search -->
 
-<% @shops.each do |f| %>
-  <%= link_to f.name, shop_path(f) %>
-  <%= f.address %>
-  <%= f.website %>
-  <%= f.phone_number %>
-  <hr>
-<% end %>
+  <div class="cotainer" id="bean-index-outer">
+    <div class="row">
+      <% @shops.each do |f| %>
+        <div class="col-lg-4 bean-index">
+          <div class="bean-index-self-img" alt="Fjords">
+            <%= image_tag f.cafeimg_url(:thumb) %>
+          </div>
+            <div class="desc">
+              <h4><%= link_to f.name, shop_path(f), class: "bean-name" %></h4>
+              <p>Address: <%= f.address %> </p>
+              <p>Website: <%= f.website %> </p>
+              <p>Phone number: <%= f.phone_number %> </p>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
