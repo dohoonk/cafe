@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*
+=============================================
+Home Page
+============================================= */
  // header
 .header-container {
     min-height: 600px;
@@ -115,27 +119,86 @@ video {
 // footer
 
 
-// Bean Index page
+/*
+=============================================
+Bean Index page
+============================================= */
+/*--- Bean Nav ---*/
+#navbar {
+  background-color: #edefed;
+  width: 100%;
+}
 
+/*--- Bean Header ---*/
 #bean-index {
-  border: 2px solid white;
-  border-radius: 5px;
-  margin: 0px 25px 5px 25px;
+  width: 100%;
   min-height: 500px;
   background-image: url("bean-header2.jpg");
   opacity: 80%;
 }
 
-#bean-index-outer {
-  width: 100%;
-  min-height: 500px;
-  margin: 10px 25px 5px 25px;
+/*--- Bean Body ---*/
+.wrapper {
+  width: 90%;
+  margin: auto;
 }
 
-#bean-index-self {
-  border: 2px solid black;
-  min-height: 250px;
-  max-width: 200px;
-  margin: auto;
-  margin-bottom: 10px;
+/*--- Bean footer ---*/
+footer {
+  min-height: 50px;
+  background-color: #edefed;
+
+  p {
+    margin-top: 19px;
+    color: black;
+    text-align: center;
+  }
 }
+
+#bean-index-outer {
+  width: 100%;
+  min-height: 300px;
+  margin: 10px;
+}
+//
+// .bean-index {
+//   max-height: 500px;
+//   overflow: hidden;
+//   width: 33.33333333%;
+// }
+.bean-index-self-img {
+  overflow: hidden;
+  width: 300px;
+  height: 200px;
+  margin: auto;
+}
+.desc{
+  margin: auto;
+  text-align: center;
+}
+.bean-index {
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+
+h4 {
+  // position: absolute;
+  // display: inline-block;
+  // top: 150px;
+  // left: 100px;
+  // z-index: 3;
+  color: black;
+}
+.bean-name {
+  color: black;
+}
+
+// p {
+//   position: absolute;
+//   display: inline-block;
+//   top: 100px;
+//   left: 150px;
+//   z-index: 3;
+//   color: black;
+// }
