@@ -18,7 +18,7 @@ class BeansController < ApplicationController
   end
 
   def index
-    @beans = Bean.all
+    @beans = Bean.order("name").page(params[:page]).per(6)
   end
 
   def show
