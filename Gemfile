@@ -34,6 +34,7 @@ gem 'cancancan'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'friendly_id'
+gem 'kaminari'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331054958) do
+ActiveRecord::Schema.define(version: 20160402223709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160331054958) do
     t.integer  "user_id"
     t.string   "beanimg"
     t.string   "slug"
+    t.string   "roast"
   end
 
   add_index "beans", ["slug"], name: "index_beans_on_slug", using: :btree

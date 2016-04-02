@@ -125,8 +125,17 @@ Bean Index page
 ============================================= */
 /*--- Bean Nav ---*/
 #navbar {
-  background-color: #edefed;
+  background-color: white;
   width: 100%;
+  height: 80px;
+
+  a {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #AC8F80;
+    text-align: center;
+    font-size: 12px;
+  }
 }
 
 /*--- Bean Header ---*/
@@ -177,7 +186,7 @@ footer {
   text-align: center;
 }
 .bean-index {
-  border: 1px solid black;
+  // border: 1px solid black;
   overflow: hidden;
 }
 

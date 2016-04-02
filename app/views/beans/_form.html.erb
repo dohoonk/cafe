@@ -3,6 +3,7 @@
     <%= f.input :name %>
     <%= f.input :region %>
     <%= f.input :producer %>
+    <%=f.input :roast, collection: [ "Dark", "Medium", "Light"] %>
     <%= f.input :beanimg, as: :file %>
     <%= f.button :submit, class: "btn btn-primary"  %>
   </div>
