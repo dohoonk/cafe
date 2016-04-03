@@ -19,6 +19,11 @@ class BeansController < ApplicationController
 
   def index
     @beans = Bean.order("name").page(params[:page]).per(6)
+    if params[:search]
+    @beans = Bean.search(params[:search]).order("name").page(params[:page]).per(6)
+    else
+    @beans = Bean.all.order('name').page(params[:page]).per(6)
+    end
   end
 
   def show
@@ -49,7 +54,7 @@ class BeansController < ApplicationController
   private
 
   def bean_params
-    bean_params = params.require(:bean).permit(:name,:region,:producer,:user_id,:beanimg,:slug)
+    bean_params = params.require(:bean).permit(:name,:region,:producer,:user_id,:beanimg,:slug,:roast)
   end
 
   def find_bean

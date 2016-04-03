@@ -20,4 +20,7 @@ class Bean < ActiveRecord::Base
     bean_likes.find_by_user_id(user)
   end
 
+  def self.search(search)
+    where("name ILIKE ? OR roast ILIKE ? OR region ILIKE ?", "%#{search}%","%#{search}%","%#{search}%")
+  end
 end
