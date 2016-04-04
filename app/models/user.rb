@@ -57,4 +57,5 @@ class User < ActiveRecord::Base
   def from_omniauth?
     uid.present? && provider.present?
   end
+
 end

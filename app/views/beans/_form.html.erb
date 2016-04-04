@@ -4,6 +4,10 @@
     <%= f.input :region %>
     <%= f.input :producer %>
     <%=f.input :roast, collection: [ "Dark", "Medium", "Light"] %>
+    <%= f.input :sweet, collection: 0..10  %>
+    <%= f.input :fruity, collection: 0..10  %>
+    <%= f.input :bitter, collection: 0..10  %>
+    <%= f.input :chocolate, collection: 0..10  %>
     <%= f.input :beanimg, as: :file %>
     <%= f.button :submit, class: "btn btn-primary"  %>
   </div>

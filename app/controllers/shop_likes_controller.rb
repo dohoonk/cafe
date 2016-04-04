@@ -3,7 +3,7 @@ class ShopLikesController < ApplicationController
 
   def create
     @shop_like = current_user.shop_likes.new
-    @shop = Shop.find params[:shop_id]
+    @shop = Shop.friendly.find params[:shop_id]
     @shop_like.shop = @shop
     if @shop_like.save
       redirect_to @shop, notice: "Liked!"
@@ -13,7 +13,7 @@ class ShopLikesController < ApplicationController
   end
 
   def destroy
-    @shop = Shop.find params[:shop_id]
+    @shop = Shop.friendly.find params[:shop_id]
     @shop_like = current_user.shop_likes.find params[:id]
     @shop_like.destroy
     redirect_to @shop, notice: "Unliked"

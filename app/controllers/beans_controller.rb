@@ -54,7 +54,7 @@ class BeansController < ApplicationController
   private
 
   def bean_params
-    bean_params = params.require(:bean).permit(:name,:region,:producer,:user_id,:beanimg,:slug,:roast)
+    bean_params = params.require(:bean).permit(:name,:region,:producer,:user_id,:beanimg,:slug,:roast,:sweet,:fruity,:bitter,:chocolate)
   end
 
   def find_bean

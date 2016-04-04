@@ -4,3 +4,24 @@
 <%= @user.last_name %>
 <hr>
 <%= @user.email %>
+<hr>
+<h2>Liked Beans</h2>
+<% @beans.each do |f| %>
+  <%= f.name %>
+  <%= image_tag f.beanimg_url.to_s %>
+<% end %>
+<hr>
+<h2>Liked Shops</h2>
+<% @shops.each do |f| %>
+  <%= f.name %>
+  <%= image_tag f.cafeimg_url.to_s %>
+<% end %>
+<hr>
+<h2>Liked Recipes</h2>
+<% @recipes.each do |f| %>
+  <%= f.name %>
+<% end %>
+
+
+<h2>Recommendation</h2>
+<%= @taste %>
