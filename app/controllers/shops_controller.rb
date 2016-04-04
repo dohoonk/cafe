@@ -17,7 +17,12 @@ class ShopsController < ApplicationController
   end
 
   def index
-    @shops = Shop.all
+    @shops = Shop.order("name").page(params[:page]).per(6)
+    if params[:search]
+    @shops = Shop.search(params[:search]).order("name").page(params[:page]).per(6)
+    else
+    @shops = Shop.all.order('name').page(params[:page]).per(6)
+    end
   end
 
   def show

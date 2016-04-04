@@ -1,6 +1,6 @@
 <%= simple_form_for @shop do |f| %>
   <div class="well">
-    <%= f.input :name %>
+    <%= f.input :name, class: "form-input"%>
     <%= f.input :phone_number %>
     <%= f.input :address %>
     <%= f.input :website %>
@@ -8,3 +8,21 @@
     <%= f.button :submit, class:"btn btn-primary" %>
   </div>
 <% end %>
+
+<!-- <%= simple_form_for @shop do |f| %>
+<div class="container-form">
+  <div class="group">
+    <%= f.input :name %>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Name</label>
+  </div>
+
+  <div class="group">
+    <input type="text" required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Email</label>
+  </div>
+</div>
+<% end %> -->

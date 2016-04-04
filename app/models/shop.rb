@@ -25,4 +25,8 @@ class Shop < ActiveRecord::Base
   def shop_like_for(user)
     shop_likes.find_by_user_id(user)
   end
+
+  def self.search(search)
+    where("name ILIKE ? OR phone_number ILIKE ? OR website ILIKE ?", "%#{search}%","%#{search}%","%#{search}%")
+  end
 end

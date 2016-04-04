@@ -1,21 +1,15 @@
 <div class="wrapper">
 <!-- Header -->
-<div class="cotainer" id="bean-index"></div>
+<div class="cotainer" id="cafe-index"></div>
 <!-- Header end -->
   <!-- search -->
-    <div class='container-search'>
-    <div class='row'>
-      <div class='col-md-8 col-md-offset-2'>
-        <div class='search-box'>
-          <form class='search-form'>
-            <input class='form-control' placeholder='ex: Look for Recipes, Cafes or Beans' type='text'>
-            <button class='btn btn-link search-btn'>
-              <i class='glyphicon glyphicon-search'></i>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
+  <div class="search">
+    <%= form_tag(shops_path, :method => "get", id: "search") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+      <%= button_tag "search", class: 'btn btn-success' do %>
+        <i class="glyphicon glyphicon-search"></i>
+      <% end %>
+    <% end %>
   </div>
   <!-- end of search -->
 

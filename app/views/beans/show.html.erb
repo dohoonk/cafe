@@ -1,20 +1,24 @@
-<h1>These are the beans you are looking for</h1>
+
 <div class="container">
+  <h1><%= @bean.name %></h1>
   <div class="bean-show-img">
     <%= image_tag @bean.beanimg_url.to_s %>
   </div>
+
   <div class="bean-show-cont">
-    <h1>Bean: <%= @bean.name %></h1>
     <h3>Region: <%= @bean.region %></h3>
     <h3>Producer: <%= @bean.producer %></h3>
+    <h3>Roast: <%= @bean.roast %></h3>
   </div>
 </div>
+
 <!-- likes -->
 <% if @bean_like.present? && @bean_like.persisted? %>
   <%= link_to "Un-Like", bean_bean_like_path(@bean, @bean_like), method: :delete %>
 <% else %>
   <%= link_to "Like", bean_bean_likes_path(@bean), method: :post %>
 <% end %>
+
 <!-- edit/delete -->
 <% if can? :edit, @bean %>
   <%= link_to "Edit", edit_bean_path(@bean) %>
@@ -25,3 +29,4 @@
 
 <%= render "comments/form" %>
 <%= render "comments/show" %>
+</div>

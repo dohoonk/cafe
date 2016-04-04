@@ -1,14 +1,14 @@
 <h1>Recipes</h1>
+<h2>Create a New Java</h2>
+<%= link_to "New", new_recipe_path %>
+<h2>View My Recipes</h2>
+<%= link_to "My Recipes", new_recipe_path %>
 
-<% @recipes.each do |f| %>
-  <%= link_to f.name, recipe_path(f) %>
-  <%= f.bean_name %>
-  <%= f.region %>
-  <%= f.roaster %>
-  <%= f.producer %>
-  <%= f.method %>
-  <%= f.rating %>
-  <%= f.notes %>
-  <%= f.grind %>
-  <hr>
-<% end %>
+<div class="container">
+  <% @recipes.each do |f| %>
+    <%= link_to f.name, recipe_path(f) %>
+    <%= f.bean_name %>
+    <%= f.method %>
+    <%= f.rating %>
+  <% end %>
+</div>

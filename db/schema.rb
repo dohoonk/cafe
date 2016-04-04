@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402223709) do
+ActiveRecord::Schema.define(version: 20160404004711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,10 @@ ActiveRecord::Schema.define(version: 20160402223709) do
     t.integer  "user_id"
     t.string   "recipeimg"
     t.string   "slug"
+    t.integer  "sweet"
+    t.integer  "fruity"
+    t.integer  "bitter"
+    t.integer  "chocolate"
   end
 
   add_index "recipes", ["slug"], name: "index_recipes_on_slug", using: :btree

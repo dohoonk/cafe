@@ -2,15 +2,16 @@
   <div class="well">
     <%= f.input :name %>
     <%= f.input :bean_name %>
-    <%= f.input :region %>
-    <%= f.input :roaster %>
-    <%= f.input :producer %>
     <%= f.input :method %>
     <%= f.input :rating %>
     <%= f.input :notes %>
     <%= f.input :grind %>
     <%= f.input :private %>
     <%= f.input :recipeimg, as: :file %>
+    <%= f.input :sweet, collection: 0..10  %>
+    <%= f.input :fruity, collection: 0..10  %>
+    <%= f.input :bitter, collection: 0..10  %>
+    <%= f.input :chocolate, collection: 0..10  %>
     <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
