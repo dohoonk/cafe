@@ -20,21 +20,14 @@ class UsersController < ApplicationController
     @shops = current_user.like_shops
     @recipes = current_user.like_recipes
 
-    # @taste = Hash.new(0)
-    # @beans.each do |key,value|
-    #   puts key
-    #   if key == (:sweet || "fruity" || "bitter" || "chocolate")
-    #     Hash[key] += value
-    #   end
-    # end
-
-    @taste = { sweet: 0, fruity: 0, bitter: 0, chocolate: 0, counter: 0 }
+    @counter = 0
+    @taste = { sweet: 0, fruity: 0, bitter: 0, chocolate: 0}
     @beans.each do |bean|
       @taste[:sweet] += bean.sweet
       @taste[:fruity] += bean.fruity
       @taste[:bitter] += bean.bitter
       @taste[:chocolate] += bean.chocolate
-      @taste[:counter] += 1
+      @counter += 1
     end
 
     @recipes.each do |bean|
@@ -42,8 +35,51 @@ class UsersController < ApplicationController
       @taste[:fruity] += bean.fruity
       @taste[:bitter] += bean.bitter
       @taste[:chocolate] += bean.chocolate
-      @taste[:counter] += 1
+      @counter += 1
     end
+
+    @taste.each do |key,value|
+      @taste[key] = value / @counter
+    end
+
+    # /====================================
+      # Recommendation algorithm
+    # ====================================/
+
+    # putting all the taste values from use to array
+    @rec_taste = Array.new
+    @taste.each_value {|value| @rec_taste.push(value)}
+
+    # putting all the taste values from beans to a hash with key bean_id and vlaue
+    @beans_all = Bean.all
+    @rec_bean = Hash.new
+
+    @beans_all.each do |bean|
+      @rec_bean[bean.id] = [bean.sweet, bean.fruity, bean.bitter, bean.chocolate]
+    end
+
+    @rec_bean.each do |key,value|
+      print @rec_taste[0]
+      print value[0]
+      @rec_bean[key] = Math.sqrt(((@rec_taste[0]-value[0])**2)+((@rec_taste[1]-value[1])**2)+((@rec_taste[2]-value[2])**2)+((@rec_taste[3]-value[3])**2) )
+    end
+
+    @rec_bean_num = Array.new
+    @rec_bean.each do |key,value|
+      if value < 5
+        @rec_bean_num.push(key)
+      end
+    end
+
+    @rec_bean_final = Array.new
+    @rec_bean_num.each do |f|
+      @rec_bean_final.push(Bean.find(f))
+    end
+
+    # print @rec_bean.group_by{|k, v| v}.min_by{|k, v| k}.last
+
+
+
   end
 
   private
