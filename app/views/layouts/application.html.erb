@@ -7,23 +7,65 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container" id="navbar">
-    <ul class="nav nav-pills">
-      <li role="presentation"><%= link_to "Home", root_path %></li>
-      <li role="presentation"><%= link_to "Bean", beans_path %></li>
-      <li role="presentation"><%= link_to "Shop", shops_path %></li>
-      <li role="presentation"><%= link_to "Recipe", recipes_path %></li>
-      <% if user_signed_in? %>
-        <li role="presentation"><%= link_to "Profile", user_path(current_user) %></li>
-        <li role="presentation"><%= link_to "Logout", sessions_path, method: :delete,
+  <header class="main_h">
+    <div class="row">
+      <a class="logo" href="#">JavaHub</a>
+      <div class="mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+        <ul>
+          <li class="hvr-overline-from-right"><%= link_to "Home", root_path%></li>
+          <li class="hvr-overline-from-right"><%= link_to "Bean", beans_path %></li>
+          <li class="hvr-overline-from-right"><%= link_to "Shop", shops_path %></li>
+          <li class="hvr-overline-from-right"><%= link_to "Recipe", recipes_path %></li>
+          <% if user_signed_in? %>
+            <li class="hvr-overline-from-right"><%= link_to "Profile", user_path(current_user) %></li>
+            <li class="hvr-overline-from-right"><%= link_to "Logout", sessions_path, method: :delete,
+                   data: {confirm: "are you sure you want to log out?"}%></li>
+
+            <li class="avatar hvr-overline-from-right"><%= link_to image_tag(current_user.avatar_url(:xxsmall).to_s), user_path(current_user) %><li>
+          <% else %>
+            <li class="navbar-right hvr-overline-from-right"><%= link_to "Login", new_session_path %></li>
+            <li class="navbar-right hvr-overline-from-right"><%= link_to "Sign in with Twitter", sign_in_with_twitter_path %></li>
+            <li class="navbar-right hvr-overline-from-right"><%= link_to "Sign Up", new_user_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div> <!-- / row -->
+  </header>
+
+  <div class="static-nav">
+  <div class="row">
+    <a class="logo" href="#">JavaHub</a>
+    <div class="mobile-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul>
+        <li class="hvr-overline-from-right"><%= link_to "Home", root_path%></li>
+        <li class="hvr-overline-from-right"><%= link_to "Bean", beans_path %></li>
+        <li class="hvr-overline-from-right"><%= link_to "Shop", shops_path %></li>
+        <li class="hvr-overline-from-right"><%= link_to "Recipe", recipes_path %></li>
+        <% if user_signed_in? %>
+          <li class="hvr-overline-from-right"><%= link_to "Profile", user_path(current_user) %></li>
+          <li class="hvr-overline-from-right"><%= link_to "Logout", sessions_path, method: :delete,
                  data: {confirm: "are you sure you want to log out?"}%></li>
-      <% else %>
-        <li role="presentation" class="navbar-right"><%= link_to "Login", new_session_path %></li>
-        <li role="presentation" class="navbar-right"><%= link_to "Sign in with Twitter", sign_in_with_twitter_path %></li>
-        <li role="presentation" class="navbar-right"><%= link_to "Sign Up", new_user_path %></li>
-      <% end %>
-    </ul>
+
+          <li class="avatar hvr-overline-from-right"><%= link_to image_tag(current_user.avatar_url(:xxsmall).to_s), user_path(current_user) %><li>
+        <% else %>
+          <li class="navbar-right hvr-overline-from-right"><%= link_to "Login", new_session_path %></li>
+          <li class="navbar-right hvr-overline-from-right"><%= link_to "Sign in with Twitter", sign_in_with_twitter_path %></li>
+          <li class="navbar-right hvr-overline-from-right"><%= link_to "Sign Up", new_user_path %></li>
+        <% end %>
+      </ul>
+    </nav>
   </div>
+</div>
 <%= yield %>
 
 <footer>

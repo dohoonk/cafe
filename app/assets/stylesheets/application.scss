@@ -87,6 +87,13 @@ video {
 Bean Index page
 ============================================= */
 /*--- Bean Nav ---*/
+.static-nav{
+  padding-top: 17px;
+  height: 65px;
+  border-bottom: 1px solid gainsboro;
+  font-family: "Montserrat", sans-serif;
+}
+
 #navbar {
   background-color: white;
   width: 100%;
@@ -582,4 +589,45 @@ p {
     -webkit-transform: translateY(20px);
     transform: translateY(20px);
   }
+}
+
+
+
+/* Overline From Right */
+a:hover{
+  text-decoration: none;
+  color: #D18F89;
+}
+
+.hvr-overline-from-right {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-overline-from-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 100%;
+  right: 0;
+  top: 0;
+  background: #D18F89;
+  height: 2px;
+  -webkit-transition-property: left;
+  transition-property: left;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.hvr-overline-from-right:hover:before, .hvr-overline-from-right:focus:before, .hvr-overline-from-right:active:before {
+  left: 0;
 }
