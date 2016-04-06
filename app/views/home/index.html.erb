@@ -19,6 +19,8 @@
                   <li><%= link_to "Profile", user_path(current_user) %></li>
                   <li><%= link_to "Logout", sessions_path, method: :delete,
                            data: {confirm: "are you sure you want to log out?"}%></li>
+
+                  <li class="avatar"><%= link_to image_tag(current_user.avatar_url(:xxsmall).to_s), user_path(current_user) %><li>
                 <% else %>
                   <li class="navbar-right"><%= link_to "Login", new_session_path %></li>
                   <li class="navbar-right"><%= link_to "Sign in with Twitter", sign_in_with_twitter_path %></li>
