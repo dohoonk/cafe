@@ -38,13 +38,24 @@ class BeanimgUploader < CarrierWave::Uploader::Base
   end
 
   version :small do
-    process :resize_to_fit => [300, 200]
+    process :resize_to_fit => [100, -1]
+  end
+
+  version :xsmall do
+    process :resize_to_fit => [80, -1]
+  end
+
+  version :med do
+    process :resize_to_fit => [150, -1]
   end
 
   version :large do
-    process :resize_to_fit => [300, 200]
+    process :resize_to_fit => [200, -1]
   end
 
+  version :xlarge do
+    process :resize_to_fit => [350, -1]
+  end
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list

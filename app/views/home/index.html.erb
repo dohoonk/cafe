@@ -1,3 +1,36 @@
+<header class="main_h">
+
+    <div class="row">
+        <a class="logo" href="#">JavaHub</a>
+
+        <div class="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav>
+            <ul>
+                <li><%= link_to "Home", root_path%></li>
+                <li><%= link_to "Bean", beans_path %></li>
+                <li><%= link_to "Shop", shops_path %></li>
+                <li><%= link_to "Recipe", recipes_path %></li>
+                <% if user_signed_in? %>
+                  <li><%= link_to "Profile", user_path(current_user) %></li>
+                  <li><%= link_to "Logout", sessions_path, method: :delete,
+                           data: {confirm: "are you sure you want to log out?"}%></li>
+                <% else %>
+                  <li class="navbar-right"><%= link_to "Login", new_session_path %></li>
+                  <li class="navbar-right"><%= link_to "Sign in with Twitter", sign_in_with_twitter_path %></li>
+                  <li class="navbar-right"><%= link_to "Sign Up", new_user_path %></li>
+                <% end %>
+            </ul>
+        </nav>
+
+    </div> <!-- / row -->
+
+</header>
+
 <!-- header-container -->
   <div class="header-container">
     <div class="video-container">
@@ -9,80 +42,43 @@
         Your browser does not support the video tag.
       </video>
     </div> <!-- end of video-container -->
-    <div class="container" id="home-navbar">
-      <ul class="nav nav-pills">
-        <li role="presentation"><%= link_to "Home", root_path%></li>
-        <li role="presentation"><%= link_to "Bean", beans_path %></li>
-        <li role="presentation"><%= link_to "Shop", shops_path %></li>
-        <li role="presentation"><%= link_to "Recipe", recipes_path %></li>
-        <% if user_signed_in? %>
-          <li role="presentation"><%= link_to "Profile", user_path(current_user) %></li>
-          <li role="presentation"><%= link_to "Logout", sessions_path, method: :delete,
-                   data: {confirm: "are you sure you want to log out?"}%></li>
-        <% else %>
-          <li role="presentation" class="navbar-right"><%= link_to "Login", new_session_path %></li>
-          <li role="presentation" class="navbar-right"><%= link_to "Sign in with Twitter", sign_in_with_twitter_path %></li>
-          <li role="presentation" class="navbar-right"><%= link_to "Sign Up", new_user_path %></li>
-        <% end %>
-      </ul>
-
-    </div>
   </div>
   <!-- end of header-container -->
 
 <!-- search -->
-  
+
 <!-- end of search -->
 
   <!-- popular shops/recipes -->
   <div class="container">
     <div class="row">
+      <% @beans.each do |f| %>
       <div class="col-lg-3">
-        <div class="circle"></div>
+        <div class="circle"><%= image_tag f.beanimg_url(:thumb) %></div>
       </div>
-      <div class="col-lg-3">
-        <div class="circle"></div>
-      </div>
-      <div class="col-lg-3">
-        <div class="circle"></div>
-      </div>
-      <div class="col-lg-3">
-        <div class="circle"></div>
-      </div>
+      <% end %>
     </div>
   </div>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-3">
-      <div class="circle"></div>
-    </div>
-    <div class="col-lg-3">
-      <div class="circle"></div>
-    </div>
-    <div class="col-lg-3">
-      <div class="circle"></div>
-    </div>
-    <div class="col-lg-3">
-      <div class="circle"></div>
+
+  <div class="container">
+    <div class="row">
+      <% @shops.each do |f| %>
+      <div class="col-lg-3">
+        <div class="circle"><%= image_tag f.cafeimg_url(:thumb) %></div>
+      </div>
+      <% end %>
     </div>
   </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-3">
-      <div class="circle"></div>
-    </div>
-    <div class="col-lg-3">
-      <div class="circle"></div>
-    </div>
-    <div class="col-lg-3">
-      <div class="circle"></div>
-    </div>
-    <div class="col-lg-3">
-      <div class="circle"></div>
+
+  <div class="container">
+    <div class="row">
+      <% @recipes.each do |f| %>
+      <div class="col-lg-3">
+        <div class="circle"><%= image_tag f.recipeimg_url(:thumb) %></div>
+      </div>
+      <% end %>
     </div>
   </div>
-</div>
 <!-- end of popular shops/recipes -->
 
 <!-- big pictures -->

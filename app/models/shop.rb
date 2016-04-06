@@ -19,8 +19,6 @@ class Shop < ActiveRecord::Base
 
   validates :name, presence: true
   validates :phone_number, presence: true
-  validates :address, presence: true
-  validates :website, presence: true
 
   def shop_like_for(user)
     shop_likes.find_by_user_id(user)

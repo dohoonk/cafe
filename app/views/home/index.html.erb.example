@@ -1,0 +1,86 @@
+<!-- header-container -->
+  <div class="header-container">
+    <div class="video-container">
+      <video class="video" autoplay loop muted>
+        <source src="coffee.mp4" type="video/mp4" />
+        <source src="coffee.ogg" type="video/ogg" />
+        <source src="coffee2.mp4" type="video/mp4" />
+        <source src="coffee2.ogg" type="video/ogg" />
+        Your browser does not support the video tag.
+      </video>
+    </div> <!-- end of video-container -->
+  </div>
+  <!-- end of header-container -->
+
+<!-- search -->
+
+<!-- end of search -->
+
+  <!-- popular shops/recipes -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="circle"></div>
+      </div>
+      <div class="col-lg-3">
+        <div class="circle"></div>
+      </div>
+      <div class="col-lg-3">
+        <div class="circle"></div>
+      </div>
+      <div class="col-lg-3">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+    <div class="col-lg-3">
+      <div class="circle"></div>
+    </div>
+  </div>
+</div>
+<!-- end of popular shops/recipes -->
+
+<!-- big pictures -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="home-picture">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of big picture -->
+
+<!-- Footer-cotainer -->
+<div class="container-footer">
+  <div class="footer">
+  </div>
+</div>
+<!-- End of footer-container -->
