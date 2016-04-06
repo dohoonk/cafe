@@ -1,7 +1,7 @@
 <%= render "/layouts/google" %>
 
 <h1>Shops</h1>
-<%= image_tag @shop.cafeimg_url.to_s %>
+<%= image_tag @shop.cafeimg_url(:xlarge).to_s %>
 <br>
 <%= @shop.name %>
 <br>
@@ -26,12 +26,11 @@
   <%= link_to "Delete", shop_path(@shop), method: :delete %>
 <% end %>
 
-<%= render "comments/form" %>
-<%= render "comments/show" %>
+<hr>
 
 <% if @shop.longitude && @shop.latitude %>
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+<div style='width: 500px;'>
+  <div id="map" style='width: 500px; height: 350px;'></div>
 </div>
 <% end %>
 <script>
@@ -53,3 +52,6 @@
  });
 
  </script>
+
+ <%= render "comments/form" %>
+ <%= render "comments/show" %>

@@ -34,8 +34,6 @@
       <video class="video" autoplay loop muted>
         <source src="coffee.mp4" type="video/mp4" />
         <source src="coffee.ogg" type="video/ogg" />
-        <source src="coffee2.mp4" type="video/mp4" />
-        <source src="coffee2.ogg" type="video/ogg" />
         Your browser does not support the video tag.
       </video>
     </div> <!-- end of video-container -->
@@ -47,21 +45,24 @@
 <!-- end of search -->
 
   <!-- popular shops/recipes -->
+<div class="container" id="bean-home">
   <div class="container cirlce">
+    <h1>Trending</h1>
     <div class="row">
       <% @beans.each do |f| %>
       <div class="col-lg-4">
-        <div class="circle"><%= image_tag f.beanimg_url(:thumb) %></div>
+        <div class="circle hvr-grow"><%= link_to image_tag(f.beanimg_url(:thumb)), bean_path(f) %><%= f.name %></div>
       </div>
       <% end %>
     </div>
   </div>
+</div>
 
   <div class="container circle">
     <div class="row">
       <% @shops.each do |f| %>
       <div class="col-lg-4">
-        <div class="circle"><%= image_tag f.cafeimg_url(:thumb) %></div>
+        <div class="circle hvr-grow"><%= link_to image_tag(f.cafeimg_url(:thumb)), shop_path(f) %><%= f.name %></div>
       </div>
       <% end %>
     </div>
@@ -71,7 +72,7 @@
     <div class="row">
       <% @recipes.each do |f| %>
       <div class="col-lg-4">
-        <div class="circle"><%= image_tag f.recipeimg_url(:thumb) %></div>
+        <div class="circle hvr-grow"><%= link_to image_tag(f.recipeimg_url(:thumb)), recipe_path(f) %><%= f.name %></div>
       </div>
       <% end %>
     </div>

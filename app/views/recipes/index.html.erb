@@ -19,13 +19,14 @@
     <div class="row">
       <% @recipes.each do |f| %>
         <div class="col-lg-4 bean-index">
-          <div class="bean-index-self-img" alt="Fjords">
-            <%= image_tag f.recipeimg_url(:thumb) %>
+          <div class="bean-index-self-img hvr-grow" alt="Fjords">
+            <%= link_to image_tag(f.recipeimg_url(:thumb)), recipe_path(f) %>
           </div>
             <div class="desc">
               <h4><%= link_to f.name, recipe_path(f), class: "bean-name" %></h4>
               <p>Method: <%= f.method %></p>
               <p>Rating: <%= f.rating %></p>
+              <p>Rating: <%= f.grind %></p>
             </div>
         </div>
       <% end %>
