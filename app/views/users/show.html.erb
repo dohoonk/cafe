@@ -1,26 +1,65 @@
-<h1>User Show Page</h1>
-<%= @user.first_name %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="bean-index-self-img" alt="Fjords">
+        <%= image_tag current_user.avatar_url(:thumb) %>
+      </div>
+
+    </div>
+    <div class="col-lg-6">
+      <div class="user-info">
+        <%= @user.first_name %>
+        <hr>
+        <%= @user.last_name %>
+        <hr>
+        <%= @user.email %>
+        <hr>
+        <%= link_to "Edit Profile", edit_user_path(@user) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" id="user-show-content">
+  <div class="row">
+    <h2>Liked Beans</h2>
+    <% @beans.each do |f| %>
+    <div class="col-lg-4">
+      <%= f.name %>
+      <%= image_tag f.beanimg_url(:thumb).to_s %>
+    </div>
+    <% end %>
+  </div>
+</div>
 <hr>
-<%= @user.last_name %>
+
+<div class="container" id="user-show-content">
+  <div class="row">
+    <h2>Liked Shops</h2>
+    <% @shops.each do |f| %>
+    <div class="col-lg-4">
+      <%= f.name %>
+      <%= image_tag f.cafeimg_url(:thumb).to_s %>
+    </div>
+    <% end %>
+  </div>
+</div>
 <hr>
-<%= @user.email %>
+
+<div class="container" id="user-show-content">
+  <div class="row">
+    <h2>Liked Recipes</h2>
+    <% @recipes.each do |f| %>
+    <div class="col-lg-4">
+      <%= f.name %>
+      <%= image_tag f.recipeimg_url(:thumb).to_s %>
+    </div>
+    <% end %>
+  </div>
+</div>
 <hr>
-<h2>Liked Beans</h2>
-<% @beans.each do |f| %>
-  <%= f.name %>
-  <%= image_tag f.beanimg_url.to_s %>
-<% end %>
-<hr>
-<h2>Liked Shops</h2>
-<% @shops.each do |f| %>
-  <%= f.name %>
-  <%= image_tag f.cafeimg_url.to_s %>
-<% end %>
-<hr>
-<h2>Liked Recipes</h2>
-<% @recipes.each do |f| %>
-  <%= f.name %>
-<% end %>
+
 
 
 <h2>Recommendation</h2>

@@ -31,13 +31,12 @@ video {
 // end of header
 
 .circle {
-    border: 2px solid grey;
-    float: none;
-    height: 150px;
-    width: 250px;
-    border-radius: 10px;
+    display: inline-block;
+    // height: 150px;
+    // width: 250px;
+
     margin: 10px;
-    display: block;
+    
     margin-left: auto;
     margin-right: auto;
 }
@@ -193,6 +192,30 @@ Cafe Show page
   min-height: 500px;
   background-image: url("cafe2.jpg");
   opacity: 80%;
+}
+
+/*
+=============================================
+Recipe
+============================================= */
+
+.recipe-button {
+  border: 2px solid grey;
+  color: #AC8F80;
+  text-align: center;
+  a {
+    font-size: 20px;
+    color: #AC8F80;
+
+  }
+}
+/*
+=============================================
+User
+============================================= */
+
+#user-show-content {
+  width: 90%
 }
 /*
 =============================================

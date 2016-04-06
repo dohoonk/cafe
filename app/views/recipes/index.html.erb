@@ -1,14 +1,37 @@
 <h1>Recipes</h1>
-<h2>Create a New Java</h2>
-<%= link_to "New", new_recipe_path %>
-<h2>View My Recipes</h2>
-<%= link_to "My Recipes", new_recipe_path %>
-
 <div class="container">
-  <% @recipes.each do |f| %>
-    <%= link_to f.name, recipe_path(f) %>
-    <%= f.bean_name %>
-    <%= f.method %>
-    <%= f.rating %>
-  <% end %>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="recipe-button">
+        <%= link_to "New Recipe", new_recipe_path %>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="recipe-button">
+        <%= link_to "My Recipes", new_recipe_path %>
+      </div>
+    </div>
+  </div>
 </div>
+
+  <div class="cotainer" id="bean-index-outer">
+    <div class="row">
+      <% @recipes.each do |f| %>
+        <div class="col-lg-4 bean-index">
+          <div class="bean-index-self-img" alt="Fjords">
+            <%= image_tag f.recipeimg_url(:thumb) %>
+          </div>
+            <div class="desc">
+              <h4><%= link_to f.name, recipe_path(f), class: "bean-name" %></h4>
+              <p>Method: <%= f.method %></p>
+              <p>Rating: <%= f.rating %></p>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='text-center'>
+    <%= paginate @recipes, :theme => 'twitter-bootstrap-3' %>
+  </div>

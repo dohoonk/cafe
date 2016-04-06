@@ -18,7 +18,12 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.order("name").page(params[:page]).per(6)
+    if params[:search]
+    @recipes = Recipe.search(params[:search]).order("name").page(params[:page]).per(6)
+    else
+    @recipes = Recipe.all.order('name').page(params[:page]).per(6)
+    end
   end
 
   def show

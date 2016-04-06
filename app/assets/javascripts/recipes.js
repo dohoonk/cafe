@@ -2,6 +2,7 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 // Sticky Header
+$(document).ready(function(){
 $(window).scroll(function() {
 
     if ($(window).scrollTop() > 100) {
@@ -41,5 +42,6 @@ $('nav a').click(function(event) {
 
 //
 $(function() {
-    $('.bean-index').matchHeight(options);
+    $('.circle').matchHeight();
 });
+})
