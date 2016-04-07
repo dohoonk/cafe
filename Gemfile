@@ -37,6 +37,8 @@ gem 'friendly_id'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem "font-awesome-rails"
+gem 'ransack'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

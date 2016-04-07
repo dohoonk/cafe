@@ -1,16 +1,12 @@
-<h1>These are the recipes you are looking for</h1>
+<div class="container">
+<h2><%= @recipe.name %></h2>
 <%= image_tag @recipe.recipeimg_url.to_s %>
-<p>Name:<%= @recipe.name %></p>
-<p>Method:<%= @recipe.method %></p>
-<p>Rating:<%= @recipe.rating %></p>
-<p>Notes:<%= @recipe.notes %></p>
-<p>Grind Type:<%= @recipe.grind %></p>
-<hr>
+<br>
 <!-- likes -->
 <% if @recipe_like.present? && @recipe_like.persisted? %>
-  <%= link_to "Un-Like", recipe_recipe_like_path(@recipe, @recipe_like), method: :delete %>
+  <%= link_to fa_icon("heart", base: "square-o", class: "fa-2x"), recipe_recipe_like_path(@recipe, @recipe_like), method: :delete %>
 <% else %>
-  <%= link_to "Like", recipe_recipe_likes_path(@recipe), method: :post %>
+  <%= link_to fa_icon("heart-o", base: "square-o", class: "fa-2x"), recipe_recipe_likes_path(@recipe), method: :post %>
 <% end %>
 
 <!-- edit/delete -->
@@ -20,5 +16,13 @@
 <% if can? :delete, @recipe %>
   <%= link_to "Delete", recipe_path(@recipe), method: :delete %>
 <% end %>
+<hr>
+<p>Name:<%= @recipe.name %></p>
+<p>Method:<%= @recipe.method %></p>
+<p>Rating:<%= @recipe.rating %></p>
+<p>Notes:<%= @recipe.notes %></p>
+<p>Grind Type:<%= @recipe.grind %></p>
+<hr>
 <%= render "comments/form" %>
 <%= render "comments/show" %>
+</div>

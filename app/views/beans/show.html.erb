@@ -1,8 +1,9 @@
 
 <div class="container">
+<div class="container bean-show-desc">
   <h1><%= @bean.name %></h1>
   <div class="bean-show-img">
-    <%= image_tag @bean.beanimg_url.to_s %>
+    <%= image_tag @bean.beanimg_url(:thumb).to_s %>
   </div>
 
   <div class="bean-show-cont">
@@ -12,12 +13,12 @@
     <h3>Shops: <%= link_to @shop.name, shop_path(@shop) %></h3>
   </div>
 </div>
-
-<!-- likes -->
+<div class="heart">
+  <!-- likes -->
 <% if @bean_like.present? && @bean_like.persisted? %>
-  <%= link_to "Un-Like", bean_bean_like_path(@bean, @bean_like), method: :delete %>
+  <%= link_to fa_icon("heart", base: "square-o", class: "fa-2x"), bean_bean_like_path(@bean, @bean_like), method: :delete, class:"heart" %>
 <% else %>
-  <%= link_to "Like", bean_bean_likes_path(@bean), method: :post %>
+  <%= link_to fa_icon("heart-o", base: "square-o", class: "fa-2x"), bean_bean_likes_path(@bean), method: :post, class:"heart" %>
 <% end %>
 
 <!-- edit/delete -->
@@ -27,7 +28,9 @@
 <% if can? :delete, @bean %>
   <%= link_to "Delete", bean_path(@bean), method: :delete %>
 <% end %>
-
+</div>
 <%= render "comments/form" %>
 <%= render "comments/show" %>
 </div>
+</div>
+<br>

@@ -1,26 +1,14 @@
 <%= render "/layouts/google" %>
-
-<h1>Shops</h1>
+<div class="container">
+<h2><%= @shop.name %></h2>
+<br>
 <%= image_tag @shop.cafeimg_url(:xlarge).to_s %>
 <br>
-<p>Name:<%= @shop.name %></p>
-<br>
-<p>Address:<%= @shop.address %></p>
-<br>
-<p>Webiste:<%= @shop.website %></p>
-<br>
-<p>Phone Number:<%= @shop.phone_number %></p>
-
-<h3>Brewing Now:</h3>
-<% @bean.each do |f| %>
-  <h3><%= link_to f.name, bean_path(f) %></h3>
-<% end %>
-<hr>
 <!-- likes -->
 <% if @shop_like.present? && @shop_like.persisted? %>
-  <%= link_to "Un-Like", shop_shop_like_path(@shop, @shop_like), method: :delete %>
+  <%= link_to fa_icon("heart", base: "square-o", class: "fa-2x"), shop_shop_like_path(@shop, @shop_like), method: :delete %>
 <% else %>
-  <%= link_to "Like", shop_shop_likes_path(@shop), method: :post %>
+  <%= link_to fa_icon("heart-o", base: "square-o", class: "fa-2x"),shop_shop_likes_path(@shop), method: :post %>
 <% end %>
 
 <!-- edit/delete -->
@@ -30,8 +18,21 @@
 <% if can? :delete, @shop %>
   <%= link_to "Delete", shop_path(@shop), method: :delete %>
 <% end %>
-
+<br>
 <hr>
+<p>Name:<%= @shop.name %></p>
+<br>
+<p>Address:<%= @shop.address %></p>
+<br>
+<p>Webiste:<%= @shop.website %></p>
+<br>
+<p>Phone Number:<%= @shop.phone_number %></p>
+<hr>
+<h3>Brewing Now:</h3>
+<% @bean.each do |f| %>
+  <h3><%= link_to f.name, bean_path(f) %></h3>
+<% end %>
+
 
 <% if @shop.longitude && @shop.latitude %>
 <div style='width: 500px;'>
@@ -60,3 +61,4 @@
 
  <%= render "comments/form" %>
  <%= render "comments/show" %>
+</div>

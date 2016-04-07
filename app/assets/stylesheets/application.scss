@@ -1,16 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "animate";
 
-/*
-=============================================
-Home Page
-============================================= */
+
+// /*
+// =============================================
+// Home Page
+// ============================================= */
  // header
+
+
 .header-container {
-    min-height: 600px;
+    height: 700px;
     padding-bottom: 0px;
-    margin-top: 0px;
+    margin-top: 10px;
+    margin-bottom: 0px;
     position: relative;
     overflow: hidden;
 }
@@ -24,7 +29,7 @@ video {
     width:100%;
     background-size: cover;
     transition: 1s opacity;
-    opacity: 0.9;
+    opacity: 1;
     position: absolute;
     top: 0;
     left: 0;
@@ -683,11 +688,22 @@ a:hover{
 .search-text {
   margin-right: 0px;
   display: inline-block;
+  outline: none;
   input {
     margin-right: 0px;
-    border: black solid 3px;
+    border-top: white;
+    border-left: white;
+    border-right: white;
+    border-bottom: 1px solid #f05f40;
     width: 700px;
     height: 34px;
+    outline: none;
+    input:hover, input:focus {
+      outline: none;
+    }
+  }
+  .search-text:focus {
+    outline: none;
   }
 }
 .search-button {
@@ -860,4 +876,19 @@ h2.no-span {
     }
     &:before { right: 1.5%; }
     &:after { left: 1.5%; }
+}
+
+// -------------------------- Awesome Font
+.heart {
+  color: black;
+  padding-right: 5px;
+  a {
+    color: black;
+  }
+}
+
+.bean-show-desc {
+    h3, a {
+      color: black;
+    }
 }

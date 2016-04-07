@@ -4,8 +4,8 @@
       <div class="bean-index-self-img" alt="Fjords">
         <%= image_tag current_user.avatar_url(:thumb) %>
       </div>
-
     </div>
+    <hr>
     <div class="col-lg-6">
       <div class="user-info">
         <%= @user.first_name %>
@@ -60,41 +60,59 @@
 </div>
 <hr>
 
-
-<h2>Recommendation</h2>
 <div class="container">
+  <h2>Recommendation</h2>
 	<div class="row">
 		<div class="col-md-4">
-                  <h3>Taste bar <span class="semi-bold">Colors</span></h3>
-                  <br>
-                  <div class="col-md-11">
-                    <p>Sweet</p>
-                    <div class="progress">
-                      <div data-percentage="0%" style="width: 50%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <p>Fruity</p>
-                    <div class="progress">
-                      <div data-percentage="0%" style="width: 60%;" class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <p>Bitter</p>
-                    <div class="progress">
-                      <div data-percentage="0%" style="width: 40%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <p>Chocolate</p>
-                    <div class="progress">
-                      <div data-percentage="0%" style="width: 20%;" class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
+      <h3>Taste bar <span class="semi-bold">Colors</span></h3>
+        <br>
+        <div class="col-md-11">
+          <p>Sweet</p>
+          <div class="progress">
+            <div data-percentage="0%" style="width: <%= @sweet %>;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <p>Fruity</p>
+          <div class="progress">
+            <div data-percentage="0%" style="width: <%= @fruity %>;"  class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <p>Bitter</p>
+          <div class="progress">
+            <div data-percentage="0%" style="width: <%= @bitter %>;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <p>Chocolate</p>
+          <div class="progress">
+            <div data-percentage="0%" style="width: <%= @chocolate %>;" class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
 	</div>
 </div>
+
+<div class="container">
 <!-- <%= @taste %> -->
-<h2>Check out these beans</h2>
-<% @rec_bean_final.each do |f| %>
-  <%= link_to f.name, bean_path(f) %>
-  <%= link_to image_tag(f.beanimg_url(:thumb)), bean_path(f) %>
-<% end %>
+<div class="container" id="user-show-content">
+  <div class="row">
+    <h2>Check out these beans</h2>
+    <% @rec_bean_final.each do |f| %>
+    <div class="col-lg-4">
+      <%= link_to f.name, bean_path(f) %>
+      <%= link_to image_tag(f.beanimg_url(:thumb)), bean_path(f) %>
+    </div>
+    <% end %>
+  </div>
+</div>
 <hr>
-<% @rec_recipe_final.each do |f| %>
-  <%= link_to f.name, recpie_path(f) %>
-<% end %>
+
+<div class="container" id="user-show-content">
+  <div class="row">
+    <h2>Check out these recipes</h2>
+    <% @rec_recipe_final.each do |f| %>
+    <div class="col-lg-4">
+      <%= link_to f.name, recipe_path(f) %>
+      <%= link_to image_tag(f.recipeimg_url(:thumb)), recipe_path(f) %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<hr>
+</div>

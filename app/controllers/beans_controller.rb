@@ -24,6 +24,10 @@ class BeansController < ApplicationController
     else
     @beans = Bean.all.order('name').page(params[:page]).per(6)
     end
+    respond_to do |format|
+      format.html
+      format.js {render :bean_search}
+    end
   end
 
   def show

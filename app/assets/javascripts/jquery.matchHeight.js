@@ -3,7 +3,7 @@
 * http://brm.io/jquery-match-height/
 * License: MIT
 */
-
+$( document ).ready(function() {
 ;(function(factory) { // eslint-disable-line no-extra-semi
     'use strict';
     if (typeof define === 'function' && define.amd) {

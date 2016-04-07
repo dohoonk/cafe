@@ -7,34 +7,33 @@
 <div class="search">
   <%= form_tag(beans_path, :method => "get", id: "search") do %>
   <div class="search-text">
-    <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Beans(Type and press Enter)" %>
   </div>
-  <div class="search-button">
-    <%= button_tag "search", class: 'glyphicon glyphicon-search search-button' do %>
-  </div>
-    <% end %>
   <% end %>
 </div>
 <!-- end of search -->
 
-  <div class="cotainer" id="bean-index-outer">
-    <div class="row">
+<div class="cotainer" id="bean-index-outer">
+  <div class="row">
+    <div id="answer">
       <% @beans.each do |f| %>
-        <div class="col-lg-4 bean-index">
-          <div class="bean-index-self-img hvr-grow" alt="Fjords">
-            <%= link_to image_tag(f.beanimg_url(:thumb)), bean_path(f) %>
-          </div>
-            <div class="desc">
-              <h4><%= link_to f.name, bean_path(f), class: "bean-name" %></h4>
-              <p>Region: <%= f.region %></p>
-              <p>Producer: <%= f.producer %></p>
-            </div>
+       <div class="col-lg-4 bean-index">
+        <div class="bean-index-self-img hvr-grow" alt="Fjords">
+         <%= link_to image_tag(f.beanimg_url(:thumb)), bean_path(f) %>
         </div>
-      <% end %>
+
+        <div class="desc">
+         <h4><%= link_to f.name, bean_path(f), class: "bean-name" %></h4>
+          <p>Region: <%= f.region %></p>
+          <p>Producer: <%= f.producer %></p>
+        </div>
+       </div>
+        <% end %>
     </div>
   </div>
 </div>
 
 <div class='text-center'>
   <%= paginate @beans, :theme => 'twitter-bootstrap-3' %>
+</div>
 </div>

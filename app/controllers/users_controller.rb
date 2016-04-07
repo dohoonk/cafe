@@ -55,6 +55,10 @@ class UsersController < ApplicationController
      @taste[key] = value / @counter
    end
 
+   @sweet = (@taste[:sweet] * 10).to_s + "%"
+   @fruity = (@taste[:fruity] * 10).to_s + "%"
+   @chocolate = (@taste[:chocolate] * 10).to_s + "%"
+   @bitter = (@taste[:bitter] * 10).to_s + "%"
    # /====================================
      # Recommendation algorithm
    # ====================================/
@@ -119,6 +123,7 @@ class UsersController < ApplicationController
    @rec_recipe_num.each do |f|
      @rec_recipe_final.push(Recipe.find(f))
    end
+
 
 
     # @user = User.friendly.find params[:id]
