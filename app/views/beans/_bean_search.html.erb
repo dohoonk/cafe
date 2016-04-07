@@ -1,14 +1,10 @@
-<div class="row">
-  <% @beans.each do |f| %>
-    <div class="col-lg-4 bean-index">
-      <div class="bean-index-self-img hvr-grow" alt="Fjords">
-        <%= link_to image_tag(f.beanimg_url(:thumb)), bean_path(f) %>
-      </div>
-        <div class="desc">
-          <h4><%= link_to f.name, bean_path(f), class: "bean-name" %></h4>
-          <p>Region: <%= f.region %></p>
-          <p>Producer: <%= f.producer %></p>
-        </div>
+<div class="col-lg-4 bean-index">
+  <div class="bean-index-self-img hvr-grow" alt="Fjords">
+    <%= link_to image_tag(f.beanimg_url(:thumb)), bean_path(f) %>
+  </div>
+    <div class="desc">
+      <h4><%= link_to f.name, bean_path(f), class: "bean-name" %></h4>
+      <p>Region: <%= f.region %></p>
+      <p>Producer: <%= f.producer %></p>
     </div>
-  <% end %>
 </div>

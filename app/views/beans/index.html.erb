@@ -5,7 +5,7 @@
 
 <!-- search -->
 <div class="search">
-  <%= form_tag(beans_path, :method => "get", id: "search") do %>
+  <%= form_tag(beans_path, :method => "get", id: "search", remote: true) do %>
   <div class="search-text">
     <%= text_field_tag :search, params[:search], placeholder: "Search Beans(Type and press Enter)" %>
   </div>
@@ -15,20 +15,10 @@
 
 <div class="cotainer" id="bean-index-outer">
   <div class="row">
-    <div id="answer">
+    <div id="answers">
       <% @beans.each do |f| %>
-       <div class="col-lg-4 bean-index">
-        <div class="bean-index-self-img hvr-grow" alt="Fjords">
-         <%= link_to image_tag(f.beanimg_url(:thumb)), bean_path(f) %>
-        </div>
-
-        <div class="desc">
-         <h4><%= link_to f.name, bean_path(f), class: "bean-name" %></h4>
-          <p>Region: <%= f.region %></p>
-          <p>Producer: <%= f.producer %></p>
-        </div>
-       </div>
-        <% end %>
+        <%= render "bean_search", f: f  %>
+      <% end %>
     </div>
   </div>
 </div>

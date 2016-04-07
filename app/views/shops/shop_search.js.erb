@@ -1,0 +1,1 @@
+$("#answers").html("<%= raw (@shops.map {|f| j(render 'shop_search', f: f) }.join('')) %>");

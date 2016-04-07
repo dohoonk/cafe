@@ -13,11 +13,9 @@ class Shop < ActiveRecord::Base
   belongs_to :user
   has_many :comments, as: :commentable
 
-  has_many :beans, dependent: :nullify
-
   #beans
   has_many :bean_shop, dependent: :destroy
-  has_many :beans_shop, through: :bean_shop, source: :beans
+  has_many :beans, through: :bean_shop
 
   #likes
   has_many :shop_likes, dependent: :destroy

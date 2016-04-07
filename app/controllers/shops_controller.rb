@@ -23,10 +23,14 @@ class ShopsController < ApplicationController
     else
     @shops = Shop.all.order('name').page(params[:page]).per(6)
     end
+    respond_to do |format|
+      format.html
+      format.js {render :shop_search}
+    end
   end
 
   def show
-    @bean = Bean.limit(5)
+    @bean = @shop.beans
     @comment = Comment.new
     @commentable = @shop
     @shop_like = @shop.shop_like_for(current_user)
@@ -54,7 +58,7 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    shop_params = params.require(:shop).permit(:phone_number,:name,:address,:website,:user_id,:cafeimg,:slug)
+    shop_params = params.require(:shop).permit(:phone_number,:name,:address,:website,:user_id,:cafeimg,:slug,:bean_id)
   end
 
   def find_shop

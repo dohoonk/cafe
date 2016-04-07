@@ -1,0 +1,11 @@
+<div class="col-lg-4 bean-index">
+  <div class="bean-index-self-img hvr-grow" alt="Fjords">
+    <%= link_to image_tag(f.cafeimg_url(:xlarge).to_s),shop_path(f) %>
+  </div>
+    <div class="desc">
+      <h4><%= link_to f.name, shop_path(f), class: "bean-name" %></h4>
+      <p>Address: <%= f.address %> </p>
+      <p>Website: <%= f.website %> </p>
+      <p>Phone number: <%= f.phone_number %> </p>
+    </div>
+</div>

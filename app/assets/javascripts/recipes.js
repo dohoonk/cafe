@@ -42,6 +42,6 @@ $('nav a').click(function(event) {
 
 //
 $(function() {
-    $('.circle').matchHeight();
+    // $('.circle').matchHeight();
 });
 })

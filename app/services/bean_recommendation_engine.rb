@@ -29,6 +29,7 @@ class BeanRecommendationEngine
     taste_profile.each do |key,value|
       taste_profile[key] = value / counter
     end
+
   end
 
   def recommended_beans
@@ -54,10 +55,4 @@ class BeanRecommendationEngine
     recommended_bean_ids = rec_bean.select{|k,v| v < 5}.keys
     Bean.where(id: recommended_bean_ids)
   end
-
-
-
-
-
-
 end
