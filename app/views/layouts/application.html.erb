@@ -29,7 +29,7 @@
             <li class="avatar hvr-overline-from-right"><%= link_to image_tag(current_user.avatar_url(:xxsmall).to_s), user_path(current_user) %><li>
           <% else %>
             <li class="navbar-right hvr-overline-from-right"><%= link_to "Login", new_session_path %></li>
-            <li class="navbar-right hvr-overline-from-right"><%= link_to "Sign in with Twitter", sign_in_with_twitter_path %></li>
+              <li class="navbar-right hvr-overline-from-right"><%= link_to fa_icon("twitter", base: "square-o", class: "fa-2x"), sign_in_with_twitter_path%></li>
             <li class="navbar-right hvr-overline-from-right"><%= link_to "Sign Up", new_user_path %></li>
           <% end %>
         </ul>
@@ -59,7 +59,7 @@
           <li class="avatar hvr-overline-from-right"><%= link_to image_tag(current_user.avatar_url(:xxsmall).to_s), user_path(current_user) %><li>
         <% else %>
           <li class="navbar-right hvr-overline-from-right"><%= link_to "Login", new_session_path %></li>
-          <li class="navbar-right hvr-overline-from-right"><%= link_to "Sign in with Twitter", sign_in_with_twitter_path %></li>
+            <li class="navbar-right hvr-overline-from-right"><%= link_to fa_icon("twitter", base: "square-o", class: "fa-2x"), sign_in_with_twitter_path%></li>
           <li class="navbar-right hvr-overline-from-right"><%= link_to "Sign Up", new_user_path %></li>
         <% end %>
       </ul>

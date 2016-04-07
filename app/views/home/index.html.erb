@@ -1,6 +1,6 @@
 <header class="main_h">
   <div class="row">
-    <a class="logo" href="#">JavaHub</a>
+    <a class="logo">JavaHub</a>
     <div class="mobile-toggle">
       <span></span>
       <span></span>
@@ -20,7 +20,7 @@
           <li class="avatar hvr-overline-from-right"><%= link_to image_tag(current_user.avatar_url(:xxsmall).to_s), user_path(current_user) %><li>
         <% else %>
           <li class="navbar-right hvr-overline-from-right"><%= link_to "Login", new_session_path %></li>
-          <li class="navbar-right hvr-overline-from-right"><%= link_to "Sign in with Twitter", sign_in_with_twitter_path %></li>
+          <li class="navbar-right hvr-overline-from-right"><%= link_to fa_icon("twitter", base: "square-o", class: "fa-2x"), sign_in_with_twitter_path%></li>
           <li class="navbar-right hvr-overline-from-right"><%= link_to "Sign Up", new_user_path %></li>
         <% end %>
       </ul>
@@ -41,16 +41,13 @@
   <!-- end of header-container -->
 
 <!-- search -->
-<form class="form-wrapper cf">
-  	<input type="text" placeholder="Search here..." required>
-	  <button type="submit">Search</button>
-</form>
+
 <!-- end of search -->
 
   <!-- popular shops/recipes -->
 <div class="container" id="bean-home">
   <div class="container cirlce">
-    <h1>These are beans you are looking for</h1>
+    <h2 class="no-span">These are the beans you are looking for</h2>
     <div class="row">
       <% @beans.each do |f| %>
       <div class="col-lg-4">
@@ -64,7 +61,7 @@
 <div class="container" id="cafe-home">
   <div class="container circle">
     <div class="row">
-      <h1>Places to bean</h1>
+      <h2 class="no-span">Places to bean</h2>
       <% @shops.each do |f| %>
       <div class="col-lg-4">
         <div class="circle hvr-grow"><%= link_to image_tag(f.cafeimg_url(:thumb)), shop_path(f) %><%= f.name %></div>
@@ -77,7 +74,7 @@
 <div class="container" id="recipe-home">
   <div class="container cirlce">
     <div class="row">
-      <h1>Trending drinks</h1>
+      <h2 class="no-span">Trending drinks</h2>
       <% @recipes.each do |f| %>
       <div class="col-lg-4">
         <div class="circle hvr-grow"><%= link_to image_tag(f.recipeimg_url(:thumb)), recipe_path(f) %><%= f.name %></div>

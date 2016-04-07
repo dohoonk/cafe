@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 /*
 =============================================
@@ -841,4 +842,22 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9534f',end
 .progress-bar-danger {
 background-color: #F35958;
 background-image: none;
+}
+
+
+// --------------------------
+
+h2.no-span {
+    display: table;
+    white-space: nowrap;
+    &:before, &:after {
+      border-top: 1px solid #D18F89;
+      content: '';
+      display: table-cell;
+      position: relative;
+      top: 0.5em;
+      width: 45%;
+    }
+    &:before { right: 1.5%; }
+    &:after { left: 1.5%; }
 }

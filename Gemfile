@@ -36,7 +36,7 @@ gem 'mini_magick'
 gem 'friendly_id'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
-
+gem "font-awesome-rails"
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -27,7 +27,7 @@
     <% @beans.each do |f| %>
     <div class="col-lg-4">
       <%= f.name %>
-      <%= image_tag f.beanimg_url(:thumb).to_s %>
+      <%= link_to image_tag(f.beanimg_url(:thumb).to_s), bean_path(f) %>
     </div>
     <% end %>
   </div>
@@ -40,7 +40,7 @@
     <% @shops.each do |f| %>
     <div class="col-lg-4">
       <%= f.name %>
-      <%= image_tag f.cafeimg_url(:thumb).to_s %>
+      <%= link_to image_tag(f.cafeimg_url(:thumb).to_s), shop_path(f) %>
     </div>
     <% end %>
   </div>
@@ -53,7 +53,7 @@
     <% @recipes.each do |f| %>
     <div class="col-lg-4">
       <%= f.name %>
-      <%= image_tag f.recipeimg_url(:thumb).to_s %>
+      <%= link_to image_tag(f.recipeimg_url(:thumb).to_s), recipe_path(f) %>
     </div>
     <% end %>
   </div>
