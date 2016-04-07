@@ -13,6 +13,12 @@ class Shop < ActiveRecord::Base
   belongs_to :user
   has_many :comments, as: :commentable
 
+  has_many :beans, dependent: :nullify
+
+  #beans
+  has_many :bean_shop, dependent: :destroy
+  has_many :beans_shop, through: :bean_shop, source: :beans
+
   #likes
   has_many :shop_likes, dependent: :destroy
   has_many :users, through: :shop_likes
@@ -25,6 +31,6 @@ class Shop < ActiveRecord::Base
   end
 
   def self.search(search)
-    where("name ILIKE ? OR phone_number ILIKE ? OR website ILIKE ?", "%#{search}%","%#{search}%","%#{search}%")
+    where("name ILIKE ? OR website ILIKE ? OR address ILIKE ?", "%#{search}%","%#{search}%","%#{search}%")
   end
 end

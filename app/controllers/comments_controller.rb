@@ -33,11 +33,11 @@ class CommentsController < ApplicationController
 
   def find_commentable
     if params[:bean_id]
-      @bean = @commentable = Bean.find params[:bean_id]
+      @bean = @commentable = Bean.friendly.find params[:bean_id]
     elsif params[:recipe_id]
-      @recipe = @commentable = Recipe.find params[:recipe_id]
+      @recipe = @commentable = Recipe.friendly.find params[:recipe_id]
     elsif params[:shop_id]
-      @shop = @commentable = Shop.find params[:shop_id]
+      @shop = @commentable = Shop.friendly.find params[:shop_id]
     end
   end
 end

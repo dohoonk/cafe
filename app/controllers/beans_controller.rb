@@ -27,6 +27,7 @@ class BeansController < ApplicationController
   end
 
   def show
+    @shop = Shop.find(16)
     @comment = Comment.new
     @commentable = @bean
     @bean_like = @bean.bean_like_for(current_user)

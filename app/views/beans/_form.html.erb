@@ -1,14 +1,69 @@
-<%= simple_form_for @bean do |f| %>
-  <div class="well">
-    <%= f.input :name %>
-    <%= f.input :region %>
-    <%= f.input :producer %>
-    <%=f.input :roast, collection: [ "Dark", "Medium", "Light"] %>
-    <%= f.input :sweet, collection: 0..10  %>
-    <%= f.input :fruity, collection: 0..10  %>
-    <%= f.input :bitter, collection: 0..10  %>
-    <%= f.input :chocolate, collection: 0..10  %>
-    <%= f.input :beanimg, as: :file %>
-    <%= f.button :submit, class: "btn btn-primary"  %>
+<div class="row">
+    <form class="col s12">
+      <%= simple_form_for @bean do |f| %>
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.input :name, class:"first_name"%>
+        </div>
+        <div class="input-field col s6">
+          <%= f.input :region %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.input :producer %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <p>Roast</p>
+          <%=f.input :roast,label: false, collection: [ "Dark", "Medium", "Light"] %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s3">
+          <p>Sweet</p>
+          <%= f.input :sweet,label: false, collection: 0..10  %>
+        </div>
+        <div class="input-field col s3">
+          <p>Fruity</p>
+          <%= f.input :fruity,label: false, collection: 0..10  %>
+        </div>
+        <div class="input-field col s3">
+          <p>Bitter</p>
+          <%= f.input :bitter,label: false, collection: 0..10  %>
+        </div>
+        <div class="input-field col s3">
+          <p>Chocolate</p>
+          <%= f.input :chocolate,label: false, collection: 0..10  %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <p>Image</p>
+          <%= f.input :beanimg,label: false, as: :file %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.button :submit, class: "btn btn-primary"  %>
+        </div>
+      </div>
+      <% end %>
+    </form>
   </div>
-<% end %>
+
+  <!-- <%= simple_form_for @bean do |f| %>
+    <div class="well">
+      <%= f.input :name %>
+      <%= f.input :region %>
+      <%= f.input :producer %>
+      <%=f.input :roast, collection: [ "Dark", "Medium", "Light"] %>
+      <%= f.input :sweet, collection: 0..10  %>
+      <%= f.input :fruity, collection: 0..10  %>
+      <%= f.input :bitter, collection: 0..10  %>
+      <%= f.input :chocolate, collection: 0..10  %>
+      <%= f.input :beanimg, as: :file %>
+      <%= f.button :submit, class: "btn btn-primary"  %>
+    </div>
+  <% end %> -->

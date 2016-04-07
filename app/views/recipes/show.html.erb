@@ -1,14 +1,10 @@
 <h1>These are the recipes that you are looking for</h1>
 <%= image_tag @recipe.recipeimg_url.to_s %>
-<%= @recipe.name %>
-<%= @recipe.bean_name %>
-<%= @recipe.region %>
-<%= @recipe.roaster %>
-<%= @recipe.producer %>
-<%= @recipe.method %>
-<%= @recipe.rating %>
-<%= @recipe.notes %>
-<%= @recipe.grind %>
+<p>Name:<%= @recipe.name %></p>
+<p>Method:<%= @recipe.method %></p>
+<p>Rating:<%= @recipe.rating %></p>
+<p>Notes:<%= @recipe.notes %></p>
+<p>Grind Type:<%= @recipe.grind %></p>
 <hr>
 <!-- likes -->
 <% if @recipe_like.present? && @recipe_like.persisted? %>

@@ -26,6 +26,7 @@ class ShopsController < ApplicationController
   end
 
   def show
+    @bean = Bean.limit(5)
     @comment = Comment.new
     @commentable = @shop
     @shop_like = @shop.shop_like_for(current_user)

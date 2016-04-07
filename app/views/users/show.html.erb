@@ -62,11 +62,39 @@
 
 
 <h2>Recommendation</h2>
-<%= @taste %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+                  <h3>Taste bar <span class="semi-bold">Colors</span></h3>
+                  <br>
+                  <div class="col-md-11">
+                    <p>Sweet</p>
+                    <div class="progress">
+                      <div data-percentage="0%" style="width: 50%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p>Fruity</p>
+                    <div class="progress">
+                      <div data-percentage="0%" style="width: 60%;" class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p>Bitter</p>
+                    <div class="progress">
+                      <div data-percentage="0%" style="width: 40%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p>Chocolate</p>
+                    <div class="progress">
+                      <div data-percentage="0%" style="width: 20%;" class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </div>
+	</div>
+</div>
+<!-- <%= @taste %> -->
+<h2>Check out these beans</h2>
 <% @rec_bean_final.each do |f| %>
-  <%= f.name %>
+  <%= link_to f.name, bean_path(f) %>
+  <%= link_to image_tag(f.beanimg_url(:thumb)), bean_path(f) %>
 <% end %>
 <hr>
 <% @rec_recipe_final.each do |f| %>
-  <%= f.name %>
+  <%= link_to f.name, recpie_path(f) %>
 <% end %>

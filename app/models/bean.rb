@@ -6,6 +6,11 @@ class Bean < ActiveRecord::Base
   # Carrierwave
   mount_uploader :beanimg, BeanimgUploader
 
+  belongs_to :shops
+  #beans
+  has_many :bean_shop, dependent: :destroy
+  has_many :shops, through: :bean_shop
+
   belongs_to :user
   has_many :comments, as: :commentable
 

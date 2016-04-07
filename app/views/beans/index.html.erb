@@ -6,9 +6,12 @@
 <!-- search -->
 <div class="search">
   <%= form_tag(beans_path, :method => "get", id: "search") do %>
+  <div class="search-text">
     <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
-    <%= button_tag "search", class: 'btn btn-success' do %>
-      <i class="glyphicon glyphicon-search"></i>
+  </div>
+  <div class="search-button">
+    <%= button_tag "search", class: 'glyphicon glyphicon-search search-button' do %>
+  </div>
     <% end %>
   <% end %>
 </div>

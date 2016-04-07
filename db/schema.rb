@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404073951) do
+ActiveRecord::Schema.define(version: 20160406225650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20160404073951) do
 
   add_index "bean_likes", ["bean_id"], name: "index_bean_likes_on_bean_id", using: :btree
   add_index "bean_likes", ["user_id"], name: "index_bean_likes_on_user_id", using: :btree
+
+  create_table "bean_shops", force: :cascade do |t|
+    t.integer  "bean_id"
+    t.integer  "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bean_shops", ["bean_id"], name: "index_bean_shops_on_bean_id", using: :btree
+  add_index "bean_shops", ["shop_id"], name: "index_bean_shops_on_shop_id", using: :btree
 
   create_table "beans", force: :cascade do |t|
     t.string   "name"
@@ -164,6 +174,8 @@ ActiveRecord::Schema.define(version: 20160404073951) do
 
   add_foreign_key "bean_likes", "beans"
   add_foreign_key "bean_likes", "users"
+  add_foreign_key "bean_shops", "beans"
+  add_foreign_key "bean_shops", "shops"
   add_foreign_key "beans", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "recipe_likes", "recipes"

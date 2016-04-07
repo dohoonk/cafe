@@ -20,6 +20,11 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
+  # beans
+  resources :shops, only: [] do
+    resources :bean_shops, only: [:create]
+  end
+
   # likes
   resources :beans, only: [] do
     resources :bean_likes, only: [:create,:destroy]

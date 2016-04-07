@@ -3,13 +3,18 @@
 <h1>Shops</h1>
 <%= image_tag @shop.cafeimg_url(:xlarge).to_s %>
 <br>
-<%= @shop.name %>
+<p>Name:<%= @shop.name %></p>
 <br>
-<%= @shop.address %>
+<p>Address:<%= @shop.address %></p>
 <br>
-<%= @shop.website %>
+<p>Webiste:<%= @shop.website %></p>
 <br>
-<%= @shop.phone_number %>
+<p>Phone Number:<%= @shop.phone_number %></p>
+
+<h3>Brewing Now:</h3>
+<% @bean.each do |f| %>
+  <h3><%= link_to f.name, bean_path(f) %></h3>
+<% end %>
 <hr>
 <!-- likes -->
 <% if @shop_like.present? && @shop_like.persisted? %>
