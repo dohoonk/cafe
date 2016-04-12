@@ -38,6 +38,7 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem "font-awesome-rails"
 gem 'ransack'
+gem 'fog'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
