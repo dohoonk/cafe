@@ -135,7 +135,7 @@ Bean Index page
 #bean-index {
   width: 90%;
   height: 500px;
-  background-image: url("bean.jpg");
+  background-image: image-url("bean.jpg");
   overflow: hidden;
   opacity: 80%;
 }
@@ -230,7 +230,7 @@ Cafe Show page
 #cafe-index {
   width: 100%;
   min-height: 500px;
-  background-image: url("cafe2.jpg");
+  background-image: image-url("cafe2.jpg");
   opacity: 80%;
 }
 
@@ -548,7 +548,7 @@ p {
 
 .hero {
   position: relative;
-  background: url(http://www.philippefercha.com/cd/toggle-menu-bg.jpg) no-repeat center center fixed;
+  background: image-url(http://www.philippefercha.com/cd/toggle-menu-bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
