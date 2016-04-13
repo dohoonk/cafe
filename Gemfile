@@ -40,6 +40,7 @@ gem "font-awesome-rails"
 gem 'ransack'
 gem 'fog'
 gem 'rails_12factor', group: :production
+gem 'yaml_db', github: 'jetthoughts/yaml_db'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
