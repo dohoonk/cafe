@@ -12,7 +12,6 @@ class BeansController < ApplicationController
     if @bean.save
       redirect_to beans_path, alert: "Bean created"
     else
-      byebug
       flash[:alert] = "Unable to create been"
       render :new
     end
@@ -32,7 +31,7 @@ class BeansController < ApplicationController
   end
 
   def show
-    @shop = Shop.find(16)
+    # @shop = Shop.find(16)
     @comment = Comment.new
     @commentable = @bean
     @bean_like = @bean.bean_like_for(current_user)

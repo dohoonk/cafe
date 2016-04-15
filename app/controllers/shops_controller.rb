@@ -30,7 +30,7 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @bean = @shop.beans
+    # @bean = @shop.beans
     @comment = Comment.new
     @commentable = @shop
     @shop_like = @shop.shop_like_for(current_user)
