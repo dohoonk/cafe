@@ -32,6 +32,8 @@ class UsersController < ApplicationController
    @beans = current_user.like_beans
    @shops = current_user.like_shops
    @recipes = current_user.like_recipes
+
+   if current_user.like_beans.count > 1
    @counter = 0
    @taste = { sweet: 0, fruity: 0, bitter: 0, chocolate: 0}
    @beans.each do |bean|
@@ -131,6 +133,7 @@ class UsersController < ApplicationController
     # @recipes = current_user.like_recipes
     # @recommended_beans = BeanRecommendationEngine.new(current_user).recommended_beans
     taste_graph!
+    end
   end
 
   private
