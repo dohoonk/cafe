@@ -1,0 +1,1246 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: bean_likes; Type: TABLE; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE TABLE bean_likes (
+    id integer NOT NULL,
+    user_id integer,
+    bean_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE bean_likes OWNER TO "DHK";
+
+--
+-- Name: bean_likes_id_seq; Type: SEQUENCE; Schema: public; Owner: DHK
+--
+
+CREATE SEQUENCE bean_likes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE bean_likes_id_seq OWNER TO "DHK";
+
+--
+-- Name: bean_likes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: DHK
+--
+
+ALTER SEQUENCE bean_likes_id_seq OWNED BY bean_likes.id;
+
+
+--
+-- Name: bean_shops; Type: TABLE; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE TABLE bean_shops (
+    id integer NOT NULL,
+    bean_id integer,
+    shop_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE bean_shops OWNER TO "DHK";
+
+--
+-- Name: bean_shops_id_seq; Type: SEQUENCE; Schema: public; Owner: DHK
+--
+
+CREATE SEQUENCE bean_shops_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE bean_shops_id_seq OWNER TO "DHK";
+
+--
+-- Name: bean_shops_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: DHK
+--
+
+ALTER SEQUENCE bean_shops_id_seq OWNED BY bean_shops.id;
+
+
+--
+-- Name: beans; Type: TABLE; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE TABLE beans (
+    id integer NOT NULL,
+    name character varying,
+    region character varying,
+    taste_profile character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    producer character varying,
+    user_id integer,
+    beanimg character varying,
+    slug character varying,
+    roast character varying,
+    sweet integer,
+    fruity integer,
+    bitter integer,
+    chocolate integer
+);
+
+
+ALTER TABLE beans OWNER TO "DHK";
+
+--
+-- Name: beans_id_seq; Type: SEQUENCE; Schema: public; Owner: DHK
+--
+
+CREATE SEQUENCE beans_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE beans_id_seq OWNER TO "DHK";
+
+--
+-- Name: beans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: DHK
+--
+
+ALTER SEQUENCE beans_id_seq OWNED BY beans.id;
+
+
+--
+-- Name: comments; Type: TABLE; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE TABLE comments (
+    id integer NOT NULL,
+    body text,
+    user_id integer,
+    commentable_id integer,
+    commentable_type character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE comments OWNER TO "DHK";
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE; Schema: public; Owner: DHK
+--
+
+CREATE SEQUENCE comments_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE comments_id_seq OWNER TO "DHK";
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: DHK
+--
+
+ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
+
+
+--
+-- Name: friendly_id_slugs; Type: TABLE; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE TABLE friendly_id_slugs (
+    id integer NOT NULL,
+    slug character varying NOT NULL,
+    sluggable_id integer NOT NULL,
+    sluggable_type character varying(50),
+    scope character varying,
+    created_at timestamp without time zone
+);
+
+
+ALTER TABLE friendly_id_slugs OWNER TO "DHK";
+
+--
+-- Name: friendly_id_slugs_id_seq; Type: SEQUENCE; Schema: public; Owner: DHK
+--
+
+CREATE SEQUENCE friendly_id_slugs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE friendly_id_slugs_id_seq OWNER TO "DHK";
+
+--
+-- Name: friendly_id_slugs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: DHK
+--
+
+ALTER SEQUENCE friendly_id_slugs_id_seq OWNED BY friendly_id_slugs.id;
+
+
+--
+-- Name: recipe_likes; Type: TABLE; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE TABLE recipe_likes (
+    id integer NOT NULL,
+    user_id integer,
+    recipe_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE recipe_likes OWNER TO "DHK";
+
+--
+-- Name: recipe_likes_id_seq; Type: SEQUENCE; Schema: public; Owner: DHK
+--
+
+CREATE SEQUENCE recipe_likes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE recipe_likes_id_seq OWNER TO "DHK";
+
+--
+-- Name: recipe_likes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: DHK
+--
+
+ALTER SEQUENCE recipe_likes_id_seq OWNED BY recipe_likes.id;
+
+
+--
+-- Name: recipes; Type: TABLE; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE TABLE recipes (
+    id integer NOT NULL,
+    name character varying,
+    region character varying,
+    roaster character varying,
+    producer character varying,
+    method character varying,
+    taste character varying,
+    rating integer,
+    notes text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    bean_name character varying,
+    grind character varying,
+    private boolean,
+    user_id integer,
+    recipeimg character varying,
+    slug character varying,
+    sweet integer,
+    fruity integer,
+    bitter integer,
+    chocolate integer
+);
+
+
+ALTER TABLE recipes OWNER TO "DHK";
+
+--
+-- Name: recipes_id_seq; Type: SEQUENCE; Schema: public; Owner: DHK
+--
+
+CREATE SEQUENCE recipes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE recipes_id_seq OWNER TO "DHK";
+
+--
+-- Name: recipes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: DHK
+--
+
+ALTER SEQUENCE recipes_id_seq OWNED BY recipes.id;
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE TABLE schema_migrations (
+    version character varying NOT NULL
+);
+
+
+ALTER TABLE schema_migrations OWNER TO "DHK";
+
+--
+-- Name: shop_likes; Type: TABLE; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE TABLE shop_likes (
+    id integer NOT NULL,
+    user_id integer,
+    shop_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE shop_likes OWNER TO "DHK";
+
+--
+-- Name: shop_likes_id_seq; Type: SEQUENCE; Schema: public; Owner: DHK
+--
+
+CREATE SEQUENCE shop_likes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE shop_likes_id_seq OWNER TO "DHK";
+
+--
+-- Name: shop_likes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: DHK
+--
+
+ALTER SEQUENCE shop_likes_id_seq OWNED BY shop_likes.id;
+
+
+--
+-- Name: shops; Type: TABLE; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE TABLE shops (
+    id integer NOT NULL,
+    phone_number integer,
+    website character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    user_id integer,
+    name character varying,
+    address character varying,
+    longitude double precision,
+    latitude double precision,
+    cafeimg character varying,
+    slug character varying
+);
+
+
+ALTER TABLE shops OWNER TO "DHK";
+
+--
+-- Name: shops_id_seq; Type: SEQUENCE; Schema: public; Owner: DHK
+--
+
+CREATE SEQUENCE shops_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE shops_id_seq OWNER TO "DHK";
+
+--
+-- Name: shops_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: DHK
+--
+
+ALTER SEQUENCE shops_id_seq OWNED BY shops.id;
+
+
+--
+-- Name: tastes; Type: TABLE; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE TABLE tastes (
+    id integer NOT NULL,
+    sweet integer,
+    fruity integer,
+    chocolate integer,
+    bitter integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE tastes OWNER TO "DHK";
+
+--
+-- Name: tastes_id_seq; Type: SEQUENCE; Schema: public; Owner: DHK
+--
+
+CREATE SEQUENCE tastes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE tastes_id_seq OWNER TO "DHK";
+
+--
+-- Name: tastes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: DHK
+--
+
+ALTER SEQUENCE tastes_id_seq OWNED BY tastes.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    first_name character varying,
+    last_name character varying,
+    email character varying,
+    password_digest character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    uid character varying,
+    provider character varying,
+    twitter_consumer_token character varying,
+    twitter_consumer_secret character varying,
+    twitter_raw_data character varying,
+    avatar character varying,
+    slug character varying
+);
+
+
+ALTER TABLE users OWNER TO "DHK";
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: DHK
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE users_id_seq OWNER TO "DHK";
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: DHK
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY bean_likes ALTER COLUMN id SET DEFAULT nextval('bean_likes_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY bean_shops ALTER COLUMN id SET DEFAULT nextval('bean_shops_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY beans ALTER COLUMN id SET DEFAULT nextval('beans_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY friendly_id_slugs ALTER COLUMN id SET DEFAULT nextval('friendly_id_slugs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY recipe_likes ALTER COLUMN id SET DEFAULT nextval('recipe_likes_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY recipes ALTER COLUMN id SET DEFAULT nextval('recipes_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY shop_likes ALTER COLUMN id SET DEFAULT nextval('shop_likes_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY shops ALTER COLUMN id SET DEFAULT nextval('shops_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY tastes ALTER COLUMN id SET DEFAULT nextval('tastes_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Data for Name: bean_likes; Type: TABLE DATA; Schema: public; Owner: DHK
+--
+
+COPY bean_likes (id, user_id, bean_id, created_at, updated_at) FROM stdin;
+3	1	4	2016-04-04 07:44:44.218753	2016-04-04 07:44:44.218753
+4	1	10	2016-04-04 08:40:46.133247	2016-04-04 08:40:46.133247
+6	2	10	2016-04-05 23:40:49.353251	2016-04-05 23:40:49.353251
+9	2	9	2016-04-06 02:58:46.141501	2016-04-06 02:58:46.141501
+14	2	7	2016-04-07 10:56:07.073603	2016-04-07 10:56:07.073603
+18	2	4	2016-04-07 19:43:38.363932	2016-04-07 19:43:38.363932
+19	2	6	2016-04-07 19:44:48.858075	2016-04-07 19:44:48.858075
+\.
+
+
+--
+-- Name: bean_likes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: DHK
+--
+
+SELECT pg_catalog.setval('bean_likes_id_seq', 21, true);
+
+
+--
+-- Data for Name: bean_shops; Type: TABLE DATA; Schema: public; Owner: DHK
+--
+
+COPY bean_shops (id, bean_id, shop_id, created_at, updated_at) FROM stdin;
+2	1	4	2016-04-07 22:47:45.636987	2016-04-07 22:47:45.636987
+3	11	2	2016-04-07 22:49:40.385751	2016-04-07 22:49:40.385751
+4	16	2	2016-04-07 22:50:20.118486	2016-04-07 22:50:20.118486
+5	4	3	2016-04-07 22:50:47.488214	2016-04-07 22:50:47.488214
+6	5	5	2016-04-07 22:51:06.737092	2016-04-07 22:51:06.737092
+7	8	6	2016-04-07 22:51:25.52816	2016-04-07 22:51:25.52816
+8	10	7	2016-04-07 22:51:50.550981	2016-04-07 22:51:50.550981
+9	3	13	2016-04-07 22:53:44.146868	2016-04-07 22:53:44.146868
+10	12	16	2016-04-07 22:58:54.887588	2016-04-07 22:58:54.887588
+12	4	16	2016-04-07 23:10:49.602118	2016-04-07 23:10:49.602118
+13	11	16	2016-04-07 23:11:43.646744	2016-04-07 23:11:43.646744
+14	13	13	2016-04-08 00:22:55.778951	2016-04-08 00:22:55.778951
+\.
+
+
+--
+-- Name: bean_shops_id_seq; Type: SEQUENCE SET; Schema: public; Owner: DHK
+--
+
+SELECT pg_catalog.setval('bean_shops_id_seq', 14, true);
+
+
+--
+-- Data for Name: beans; Type: TABLE DATA; Schema: public; Owner: DHK
+--
+
+COPY beans (id, name, region, taste_profile, created_at, updated_at, producer, user_id, beanimg, slug, roast, sweet, fruity, bitter, chocolate) FROM stdin;
+11	NUEVA LLUSTA 	San Lorenzo	\N	2016-04-02 23:20:07.702386	2016-04-04 20:57:23.539881	Rola	1	Nueva-Llusta-Bolivia-Filter-2016.02.22-510x510_2x.jpg	nueva-llusta	Medium	0	0	10	3
+5	RAILTOWN	Nicaragua	\N	2016-04-02 23:04:35.211706	2016-04-04 20:58:01.290045	JJBean	1	Railtown.png	railtown	Light	0	10	3	8
+2	Sumatra	Asia-Pacific	\N	2016-04-02 22:58:20.492493	2016-04-04 20:58:36.721915	Starbucks	1	sumatra_wb_fy14_us.jpg	sumatra	Dark	2	8	2	10
+9	VILLA IMPERIAL	Yungas	\N	2016-04-02 23:11:00.059083	2016-04-04 20:59:13.870498	Julio Paniagua	1	Villa-Imperial-Bolivia-Espresso-03.28.2016-510x510_2x.jpg	villa-imperial	Light	10	0	0	10
+17	Sulawesi	ASIA-PACIFIC	\N	2016-04-03 01:14:27.342961	2016-04-04 21:02:25.24889	Starbucks	1	sulawesi_us_ca_pdp.jpg	sulawesi	Dark	2	9	8	2
+4	 Norberto Mamani	Uchumachi, Caravani	\N	2016-04-02 23:01:51.400863	2016-04-15 01:49:37.099691	 Norberto Mamani	1	iced-coffee-articleLarge.jpg	bolivia	Medium	9	3	6	8
+10	CARLIN’S GEISHA 	Volcan	\N	2016-04-02 23:12:42.561523	2016-04-15 07:34:04.613024	Carlos Aguilera	1	2208832.jpg	carlin-s-geisha	Medium	1	4	6	6
+3	Caffé Verona	Multi-Region	\N	2016-04-02 22:59:40.366645	2016-04-04 09:39:05.753407	Starbucks	1	verona_wb_fy14_us.jpg	caffe-verona	Dark	10	1	10	10
+8	CYANIKA	Rwanda	\N	2016-04-02 23:09:05.220776	2016-04-04 20:49:33.972476	Motherland Farmers	1	Cyanika.jpg	cyanika	Medium	10	8	7	1
+1	Komodo Dragon	Asia-Pacific	\N	2016-04-02 22:57:20.303219	2016-04-04 20:51:08.646352	Starbucks	1	komodo_wb_fy14_us.jpg	komodo-dragon	Dark	2	4	10	0
+6	EASTSIDE	Guatemala	\N	2016-04-02 23:05:44.293949	2016-04-04 20:52:49.072565	JJBean	1	Eastside.png	eastside	Dark	2	1	8	1
+14	ETHIOPIA DUROMINA	Agaro	\N	2016-04-02 23:23:28.373046	2016-04-04 20:53:29.773543	Heart	1	Duromina_grande.jpg	ethiopia-duromina	Light	10	5	1	3
+15	ETHIOPIA LOMI TASHA	SNNP, Yirgacheffe Zon	\N	2016-04-02 23:25:05.136964	2016-04-04 20:54:05.846855	Timbertrain	1	LOMI-01-300x300.png	ethiopia-lomi-tasha	Light	6	3	1	8
+16	GUATEMALA FINCA LA GUADALUPE	Antigua	\N	2016-04-02 23:25:49.782252	2016-04-04 20:54:51.278268	Timbertrain	1	GUAT-SPRO-01-300x300.png	guatemala-finca-la-guadalupe	Dark	3	4	5	6
+13	KENYA NGERWE	Embu County	\N	2016-04-02 23:22:27.410042	2016-04-04 20:55:30.526845	Ngerwe	1	Ngerwe_grande.jpg	kenya-ngerwe	Light	0	2	6	5
+7	MAHEMBE	Rwanda	\N	2016-04-02 23:08:00.021546	2016-04-04 20:56:10.553974	Justin Musabyiama	1	mahembe_kl.jpg	mahembe	Dark	5	2	8	3
+12	MARTHA REINA 	Diamante	\N	2016-04-02 23:21:19.855096	2016-04-04 20:56:48.239816	MARTHA REINA 	1	Martha-Reina-Filter-Colombia-2016.02.16-510x510_2x.jpg	martha-reina	Medium	3	8	2	10
+\.
+
+
+--
+-- Name: beans_id_seq; Type: SEQUENCE SET; Schema: public; Owner: DHK
+--
+
+SELECT pg_catalog.setval('beans_id_seq', 18, true);
+
+
+--
+-- Data for Name: comments; Type: TABLE DATA; Schema: public; Owner: DHK
+--
+
+COPY comments (id, body, user_id, commentable_id, commentable_type, created_at, updated_at) FROM stdin;
+1	Awesome :)	2	7	Recipe	2016-04-06 23:34:17.487841	2016-04-06 23:34:17.487841
+2	Wow tasty	2	5	Bean	2016-04-07 00:00:36.744165	2016-04-07 00:00:36.744165
+4	Awesome Place to hang :)	2	16	Shop	2016-04-08 00:48:10.60059	2016-04-08 00:48:10.60059
+5	Best Dark roast ever!	2	3	Bean	2016-04-08 01:15:07.512277	2016-04-08 01:15:07.512277
+\.
+
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: DHK
+--
+
+SELECT pg_catalog.setval('comments_id_seq', 5, true);
+
+
+--
+-- Data for Name: friendly_id_slugs; Type: TABLE DATA; Schema: public; Owner: DHK
+--
+
+COPY friendly_id_slugs (id, slug, sluggable_id, sluggable_type, scope, created_at) FROM stdin;
+1	tony	1	User	\N	2016-04-02 22:56:43.13963
+2	komodo-dragon	1	Bean	\N	2016-04-02 22:57:20.316885
+3	sumatra	2	Bean	\N	2016-04-02 22:58:20.500496
+4	caffe-verona	3	Bean	\N	2016-04-02 22:59:40.373499
+5	bolivia	4	Bean	\N	2016-04-02 23:01:51.409684
+6	railtown	5	Bean	\N	2016-04-02 23:04:35.224982
+7	eastside	6	Bean	\N	2016-04-02 23:05:44.304976
+8	mahembe	7	Bean	\N	2016-04-02 23:08:00.033479
+9	cyanika	8	Bean	\N	2016-04-02 23:09:05.228436
+10	villa-imperial	9	Bean	\N	2016-04-02 23:11:00.064754
+11	carlin-s-geisha	10	Bean	\N	2016-04-02 23:12:42.569349
+12	nueva-llusta	11	Bean	\N	2016-04-02 23:20:07.709215
+13	martha-reina	12	Bean	\N	2016-04-02 23:21:19.871969
+14	kenya-ngerwe	13	Bean	\N	2016-04-02 23:22:27.42142
+15	ethiopia-duromina	14	Bean	\N	2016-04-02 23:23:28.378751
+16	ethiopia-lomi-tasha	15	Bean	\N	2016-04-02 23:25:05.143811
+17	guatemala-finca-la-guadalupe	16	Bean	\N	2016-04-02 23:25:49.787716
+18	sulawesi	17	Bean	\N	2016-04-03 01:14:27.359744
+20	dohoon	2	User	\N	2016-04-03 01:33:08.820493
+22	revolver	2	Shop	\N	2016-04-06 00:19:48.139629
+23	timbertrain-coffee-roasters	3	Shop	\N	2016-04-06 00:32:51.053524
+24	the-buzz-cafe-espresso-bar	4	Shop	\N	2016-04-06 00:35:41.859085
+25	thierry-chocolaterie-patisserie-cafe	5	Shop	\N	2016-04-06 00:39:23.015893
+26	molli-cafe	6	Shop	\N	2016-04-06 00:41:51.091457
+27	small-victory-bakery	7	Shop	\N	2016-04-06 00:43:27.462482
+28	coo-coo-coffee	8	Shop	\N	2016-04-06 00:45:16.85554
+29	breka-bakery-cafe	9	Shop	\N	2016-04-06 00:47:26.698781
+30	caffe-artigiano	10	Shop	\N	2016-04-06 00:49:59.394185
+31	footo-croissant	11	Shop	\N	2016-04-06 00:53:09.475377
+32	o-cha-tea-bar	12	Shop	\N	2016-04-06 00:54:38.192587
+33	prado-cafe	13	Shop	\N	2016-04-06 00:55:58.926568
+34	milano-coffee-roasters	14	Shop	\N	2016-04-06 01:03:22.768197
+35	ya-ya-s-cafe-bubble-tea	15	Shop	\N	2016-04-06 01:05:37.431147
+36	cafe-latte	2	Recipe	\N	2016-04-06 02:16:52.977735
+37	coconut-oil-coffee	3	Recipe	\N	2016-04-06 05:08:58.811907
+38	irish-coffee	4	Recipe	\N	2016-04-06 05:11:19.449986
+39	chocolate-chai-coffee-mix	5	Recipe	\N	2016-04-06 05:13:23.779522
+40	azucena-s-homemade-mocha	6	Recipe	\N	2016-04-06 05:14:58.404497
+41	cold-brew	7	Recipe	\N	2016-04-06 05:17:36.893552
+42	cold-brewed-iced-coffee	8	Recipe	\N	2016-04-06 05:19:28.460827
+43	black-magic-coffee-sugar-free-fat-free	9	Recipe	\N	2016-04-06 05:23:16.349243
+44	turkish-coffee	10	Recipe	\N	2016-04-06 05:24:53.250842
+45	cafe-de-flore	16	Shop	\N	2016-04-06 22:38:08.099995
+48	asfsaf	13	Recipe	\N	2016-04-12 19:16:42.497566
+49	dsfdasf	3	User	\N	2016-04-13 23:48:54.782132
+50	asdfasfdsafds	17	Shop	\N	2016-04-15 01:15:51.586875
+52	dsaf	4	User	\N	2016-04-15 07:41:54.549807
+\.
+
+
+--
+-- Name: friendly_id_slugs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: DHK
+--
+
+SELECT pg_catalog.setval('friendly_id_slugs_id_seq', 52, true);
+
+
+--
+-- Data for Name: recipe_likes; Type: TABLE DATA; Schema: public; Owner: DHK
+--
+
+COPY recipe_likes (id, user_id, recipe_id, created_at, updated_at) FROM stdin;
+3	2	9	2016-04-07 19:58:49.411817	2016-04-07 19:58:49.411817
+4	1	9	2016-04-07 20:27:29.53902	2016-04-07 20:27:29.53902
+\.
+
+
+--
+-- Name: recipe_likes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: DHK
+--
+
+SELECT pg_catalog.setval('recipe_likes_id_seq', 5, true);
+
+
+--
+-- Data for Name: recipes; Type: TABLE DATA; Schema: public; Owner: DHK
+--
+
+COPY recipes (id, name, region, roaster, producer, method, taste, rating, notes, created_at, updated_at, bean_name, grind, private, user_id, recipeimg, slug, sweet, fruity, bitter, chocolate) FROM stdin;
+2	Cafe Latte	\N	\N	\N	Drip	\N	10		2016-04-06 02:16:52.964601	2016-04-06 02:16:52.964601	\N	fine	f	2	stock-photo-83982617.jpg	cafe-latte	6	2	2	6
+3	Coconut Oil Coffee	\N	\N	\N	Espresso	\N	9	This blend of coconut oil and unsalted, grass-fed organic butter in your coffee is definitely something to write about!"	2016-04-06 05:08:58.805333	2016-04-06 05:09:29.739002	\N	Fine	f	2	1128816__1_.jpg	coconut-oil-coffee	10	0	2	3
+4	Irish Coffee	\N	\N	\N	Pour over	\N	10	"Fresh hot coffee gets a little added pep with the addition of Irish whiskey and Irish cream."\r\n\r\n1 (1.5 fluid ounce) jigger Irish whiskey\r\n\r\n1 dash ground nutmeg	2016-04-06 05:11:19.443157	2016-04-06 05:11:19.443157	\N	rough	f	2	213286.jpg	irish-coffee	10	0	9	9
+5	Chocolate Chai Coffee Mix	\N	\N	\N	Drip	\N	6	'Sweet Cream' is fabulous in this, if you like sweet coffee. Cardamom gives it the slight licorice taste; if you omit it, that's fine too."	2016-04-06 05:13:23.772802	2016-04-06 05:13:23.772802	\N	fine	f	2	2050506.jpg	chocolate-chai-coffee-mix	8	0	1	10
+6	Azucena's Homemade Mocha	\N	\N	\N	Esspresso	\N	9	"lower-calorie alternative to the chain mochas."	2016-04-06 05:14:58.396308	2016-04-06 05:14:58.396308	\N	fine	f	2	2208832.jpg	azucena-s-homemade-mocha	9	1	0	9
+7	Cold Brew	\N	\N	\N	Drip	\N	9	My summertime favorites because cold brew really is the easiest coffee method out there—as simple as one, two, steep. 	2016-04-06 05:17:36.886163	2016-04-06 05:17:36.886163	\N	fine	f	2	38099d46-1d70-4ae6-8286-ad7dd7524a85--7775418398_bc3ffe420f.jpg	cold-brew	0	7	7	0
+8	Cold-Brewed Iced Coffee	\N	\N	\N	Pour-Over	\N	8	You just add water to coffee, stir, cover it and leave it out on the counter overnight. A quick two-step filtering the next day (strain the grounds through a sieve, and use a coffee filter to pick up silt), a dilution of the brew one-to-one with water, and you’re done. 	2016-04-06 05:19:28.452898	2016-04-06 05:19:28.452898	\N	fine	f	2	iced-coffee-articleLarge.jpg	cold-brewed-iced-coffee	0	7	9	3
+9	Black Magic Coffee, Sugar Free-Fat Free	\N	\N	\N	Pour-Over	\N	7	Pour fresh coffee into mug.\r\nAdd the extracts and Splenda.\r\nStir and enjoy!\r\n	2016-04-06 05:23:16.334163	2016-04-06 05:23:16.334163	\N	Fine	f	2	NuEgX0.jpg	black-magic-coffee-sugar-free-fat-free	2	5	3	0
+10	Turkish Coffee	\N	\N	\N	Pour-Over	\N	8	Bring water and sugar to a boil in ibrik.\r\nIf you do not have an ibrik, a small saucepan will work.\r\nRemove from heat, add coffee and cardamom.\r\nReturn saucepan to heat and allow to come to a boil.\r\nRemove from heat when coffee foams.\r\nAgain, return to heat, allowing to foam and remove from heat.\r\nPour into cup, and allow to sit for a few minutes for the grounds to settle to the bottom of the cup.\r\nCardamom pod may be served in cup for added flavor.	2016-04-06 05:24:53.243069	2016-04-06 05:24:53.243069	\N	Fine	f	2	picOXAh3t.jpg	turkish-coffee	0	1	7	0
+13	asfsaf	\N	\N	\N		\N	\N		2016-04-12 19:16:42.460714	2016-04-12 19:16:42.460714	\N	asdfas	f	2	1128816__1_.jpg	asfsaf	\N	\N	\N	\N
+\.
+
+
+--
+-- Name: recipes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: DHK
+--
+
+SELECT pg_catalog.setval('recipes_id_seq', 13, true);
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: DHK
+--
+
+COPY schema_migrations (version) FROM stdin;
+20160317024728
+20160317025233
+20160317030224
+20160319184613
+20160319184652
+20160319185024
+20160319185052
+20160319185649
+20160319213542
+20160319214347
+20160319215356
+20160322020154
+20160323000930
+20160323001319
+20160323204446
+20160323204509
+20160331014719
+20160331015118
+20160331015134
+20160331015146
+20160331034327
+20160331034335
+20160331034341
+20160331034345
+20160331035759
+20160331041653
+20160331052611
+20160331054958
+20160402223709
+20160404004711
+20160404073951
+20160406225650
+\.
+
+
+--
+-- Data for Name: shop_likes; Type: TABLE DATA; Schema: public; Owner: DHK
+--
+
+COPY shop_likes (id, user_id, shop_id, created_at, updated_at) FROM stdin;
+1	2	9	2016-04-06 02:22:19.778097	2016-04-06 02:22:19.778097
+\.
+
+
+--
+-- Name: shop_likes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: DHK
+--
+
+SELECT pg_catalog.setval('shop_likes_id_seq', 4, true);
+
+
+--
+-- Data for Name: shops; Type: TABLE DATA; Schema: public; Owner: DHK
+--
+
+COPY shops (id, phone_number, website, created_at, updated_at, user_id, name, address, longitude, latitude, cafeimg, slug) FROM stdin;
+2	604	http://revolvercoffee.ca/home/	2016-04-06 00:19:48.116082	2016-04-06 00:27:35.527896	2	Revolver	325 Cambie Street Vancouver, BC V6B 1H7	-123.109452099999999	49.2831910000000022	rev.jpg	revolver
+4	604	www.thebuzzcafe.net	2016-04-06 00:35:41.851512	2016-04-06 00:37:16.247145	2	The Buzz Café & Espresso Bar	901 Homer Street Vancouver, BC V6B 2W6	-123.118527599999993	49.2784347000000125	gallery7.jpg	the-buzz-cafe-espresso-bar
+5	604	www.thierrychocolates.com	2016-04-06 00:39:23.009018	2016-04-06 00:39:23.009018	2	Thierry Chocolaterie Patisserie Cafe	1059 Alberni Street Vancouver, BC V6E 1A1	-123.122628800000001	49.2848765000000029	resampled_Thierry_front_door.jpg	thierry-chocolaterie-patisserie-cafe
+6	604	www.mollicafe.com	2016-04-06 00:41:51.085329	2016-04-06 00:41:51.085329	2	Molli Cafe	1225 Burrard Street Vancouver, BC V6Z 1Z5	-123.129851400000007	49.2787702999999979	b408ff22822367.56318f13ef7c4.jpg	molli-cafe
+7	604	www.smallvictory.ca	2016-04-06 00:43:27.455819	2016-04-06 00:43:27.455819	2	Small Victory Bakery	1088 Homer Street Vancouver, BC V6B	-123.121213299999994	49.2764917000000011	P1171915.jpg	small-victory-bakery
+9	604	www.breka.ca	2016-04-06 00:47:26.69174	2016-04-06 00:47:59.100827	2	Breka Bakery & Cafe	855 Davie Street Vancouver, BC V6Z 1B7	-123.128123099999996	49.2784223999999966	photo1jpg.jpg	breka-bakery-cafe
+10	604	www.affeartigiano.com	2016-04-06 00:49:59.385479	2016-04-06 00:49:59.385479	2	Caffè Artigiano	763 Hornby Street Vancouver, BC V6Z 2P4	-123.121482200000003	49.2828692999999873	caffe-artigiano.jpg	caffe-artigiano
+11	604	www.footocroissant.com	2016-04-06 00:53:09.467075	2016-04-06 00:53:09.467075	2	Footo Croissant	858 Hamilton Street Vancouver, BC V6B 6A2	-123.116650500000006	49.2783415999999974	footo-delights.jpg	footo-croissant
+12	604		2016-04-06 00:54:38.186203	2016-04-06 00:54:38.186203	2	O-Cha Tea Bar	1116 Homer Street Vancouver, BC V6B 2X6	-123.121898299999998	49.2761726000000024	Photo-2013-07-13-9-21-27-PM-e1374679411784-900x450.jpg	o-cha-tea-bar
+13	604	www.pradocafevancouver.com	2016-04-06 00:55:58.920518	2016-04-06 00:55:58.920518	2	Prado Cafe	100 W Hastings Street Vancouver, BC V6B 1G8	-123.107325900000006	49.2820145999999966	348s.jpg	prado-cafe
+14	604	www.milanocoffee.ca	2016-04-06 01:03:22.762846	2016-04-06 01:03:55.947788	2	Milano Coffee Roasters	36 Powell Street Vancouver, BC V6B 2J1	-123.1035988	49.2832618999999994	348s__1_.jpg	milano-coffee-roasters
+15	604		2016-04-06 01:05:37.425437	2016-04-06 01:05:37.425437	2	Ya Ya’s Cafe & Bubble Tea	1020 Howe Street Vancouver, BC V6Z 2P5	-123.124097199999994	49.2795835000000011	yaya-s-cafe-and-bubble.jpg	ya-ya-s-cafe-bubble-tea
+8	604	N/A	2016-04-06 00:45:16.847793	2016-04-06 01:25:53.721111	2	Coo Coo Coffee	477 Davie Street Vancouver, BC V6B  2G2	-123.123767200000003	49.2755950999999968	Decor1.jpg	coo-coo-coffee
+3	604	http://timbertraincoffeeroasters.com/	2016-04-06 00:32:51.047055	2016-04-06 02:44:43.975394	2	Timbertrain Coffee Roasters	311 W Cordova Street Vancouver, BC V6B 4K2	-123.109754899999999	49.2840828000000002	ls.jpg	timbertrain-coffee-roasters
+16	33	http://www.marykatrantzou.com/	2016-04-06 22:38:08.087464	2016-04-06 22:38:08.087464	2	Café de Flore	172 Boulevard Saint-Germain, 75006 Paris, France	2.33248249999999979	48.8541404000000128	tumblr_n20wk2og5v1r1yzzro1_1280.jpeg	cafe-de-flore
+17	52		2016-04-15 01:15:51.467149	2016-04-15 01:15:51.467149	1	asdfasfdsafds		\N	\N	\N	asdfasfdsafds
+\.
+
+
+--
+-- Name: shops_id_seq; Type: SEQUENCE SET; Schema: public; Owner: DHK
+--
+
+SELECT pg_catalog.setval('shops_id_seq', 17, true);
+
+
+--
+-- Data for Name: tastes; Type: TABLE DATA; Schema: public; Owner: DHK
+--
+
+COPY tastes (id, sweet, fruity, chocolate, bitter, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Name: tastes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: DHK
+--
+
+SELECT pg_catalog.setval('tastes_id_seq', 1, false);
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: DHK
+--
+
+COPY users (id, first_name, last_name, email, password_digest, created_at, updated_at, uid, provider, twitter_consumer_token, twitter_consumer_secret, twitter_raw_data, avatar, slug) FROM stdin;
+2	DoHoon	Kim	dohoonk.smg@gmail.com	$2a$10$nwR6nzokw8HlSdt4quhR3..Om94XdwD52ZREP2LO99WWBQuaEWXJG	2016-04-03 01:33:08.795071	2016-04-12 08:56:26.561443	1458663703	twitter	1458663703-VTGuAuCxotQfhHbSXxzGTXui2WTtTJOuWvIVrPg	R2msBh875Tdn7B23Uw0gSavdFDKETrEeYKsN3rR1FjliP	--- !ruby/hash:OmniAuth::AuthHash\nprovider: twitter\nuid: '1458663703'\ninfo: !ruby/hash:OmniAuth::AuthHash::InfoHash\n  nickname: KimSmg\n  name: DoHoon Kim\n  email: \n  location: ''\n  image: http://abs.twimg.com/sticky/default_profile_images/default_profile_0_normal.png\n  description: ''\n  urls: !ruby/hash:OmniAuth::AuthHash\n    Website: \n    Twitter: https://twitter.com/KimSmg\ncredentials: !ruby/hash:OmniAuth::AuthHash\n  token: 1458663703-VTGuAuCxotQfhHbSXxzGTXui2WTtTJOuWvIVrPg\n  secret: R2msBh875Tdn7B23Uw0gSavdFDKETrEeYKsN3rR1FjliP\nextra: !ruby/hash:OmniAuth::AuthHash\n  access_token: !ruby/object:OAuth::AccessToken\n    token: 1458663703-VTGuAuCxotQfhHbSXxzGTXui2WTtTJOuWvIVrPg\n    secret: R2msBh875Tdn7B23Uw0gSavdFDKETrEeYKsN3rR1FjliP\n    consumer: !ruby/object:OAuth::Consumer\n      key: SbWUZ134mBDB9oPGRNTcpWk9m\n      secret: uaME0IuoIJgmioD01ZxgGarxzqp06AJjEazOgixr1PnsO2z8ho\n      options:\n        :signature_method: HMAC-SHA1\n        :request_token_path: /oauth/request_token\n        :authorize_path: /oauth/authenticate\n        :access_token_path: /oauth/access_token\n        :proxy: \n        :scheme: :header\n        :http_method: :post\n        :oauth_version: '1.0'\n        :site: https://api.twitter.com\n      http: !ruby/object:Net::HTTP\n        address: api.twitter.com\n        port: 443\n        local_host: \n        local_port: \n        curr_http_version: '1.1'\n        keep_alive_timeout: 2\n        last_communicated: \n        close_on_empty_response: false\n        socket: \n        started: false\n        open_timeout: 30\n        read_timeout: 30\n        continue_timeout: \n        debug_output: \n        proxy_from_env: true\n        proxy_uri: \n        proxy_address: \n        proxy_port: \n        proxy_user: \n        proxy_pass: \n        use_ssl: true\n        ssl_context: !ruby/object:OpenSSL::SSL::SSLContext\n          cert: \n          key: \n          client_ca: \n          ca_file: \n          ca_path: \n          timeout: \n          verify_mode: 0\n          verify_depth: \n          renegotiation_cb: \n          verify_callback: \n          options: -2097019905\n          cert_store: \n          extra_chain_cert: \n          client_cert_cb: \n          tmp_dh_callback: \n          session_id_context: \n          session_get_cb: \n          session_new_cb: \n          session_remove_cb: \n          servername_cb: \n          npn_protocols: \n          npn_select_cb: \n        ssl_session: !ruby/object:OpenSSL::SSL::Session {}\n        enable_post_connection_check: true\n        sspi_enabled: false\n        ca_file: \n        ca_path: \n        cert: \n        cert_store: \n        ciphers: \n        key: \n        ssl_timeout: \n        ssl_version: \n        verify_callback: \n        verify_depth: \n        verify_mode: 0\n      http_method: :post\n      uri: !ruby/object:URI::HTTPS\n        scheme: https\n        user: \n        password: \n        host: api.twitter.com\n        port: 443\n        path: ''\n        query: \n        opaque: \n        registry: \n        fragment: \n        parser: \n    params:\n      :oauth_token: 1458663703-VTGuAuCxotQfhHbSXxzGTXui2WTtTJOuWvIVrPg\n      oauth_token: 1458663703-VTGuAuCxotQfhHbSXxzGTXui2WTtTJOuWvIVrPg\n      :oauth_token_secret: R2msBh875Tdn7B23Uw0gSavdFDKETrEeYKsN3rR1FjliP\n      oauth_token_secret: R2msBh875Tdn7B23Uw0gSavdFDKETrEeYKsN3rR1FjliP\n      :user_id: '1458663703'\n      user_id: '1458663703'\n      :screen_name: KimSmg\n      screen_name: KimSmg\n      :x_auth_expires: '0'\n      x_auth_expires: '0'\n    response: !ruby/object:Net::HTTPOK\n      http_version: '1.1'\n      code: '200'\n      message: OK\n      header:\n        cache-control:\n        - no-cache, no-store, must-revalidate, pre-check=0, post-check=0\n        connection:\n        - close\n        content-disposition:\n        - attachment; filename=json.json\n        content-length:\n        - '545'\n        content-type:\n        - application/json;charset=utf-8\n        date:\n        - Sun, 03 Apr 2016 01:33:08 GMT\n        expires:\n        - Tue, 31 Mar 1981 05:00:00 GMT\n        last-modified:\n        - Sun, 03 Apr 2016 01:33:08 GMT\n        pragma:\n        - no-cache\n        server:\n        - tsa_a\n        set-cookie:\n        - lang=en; Path=/\n        - guest_id=v1%3A145964718863424086; Domain=.twitter.com; Path=/; Expires=Tue,\n          03-Apr-2018 01:33:08 UTC\n        status:\n        - 200 OK\n        strict-transport-security:\n        - max-age=631138519\n        x-access-level:\n        - read-write\n        x-connection-hash:\n        - 197aae022c0a784431160cde3a594866\n        x-content-type-options:\n        - nosniff\n        x-frame-options:\n        - SAMEORIGIN\n        x-rate-limit-limit:\n        - '15'\n        x-rate-limit-remaining:\n        - '14'\n        x-rate-limit-reset:\n        - '1459648088'\n        x-response-time:\n        - '30'\n        x-transaction:\n        - 56bf0ffe73bc2aa4\n        x-twitter-response-tags:\n        - BouncerExempt\n        - BouncerCompliant\n        x-xss-protection:\n        - 1; mode=block\n      body: '{"id":1458663703,"id_str":"1458663703","name":"DoHoon Kim","screen_name":"KimSmg","location":"","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":0,"friends_count":0,"listed_count":0,"created_at":"Sun\n        May 26 03:34:44 +0000 2013","favourites_count":0,"utc_offset":-25200,"time_zone":"Pacific\n        Time (US & Canada)","geo_enabled":false,"verified":false,"statuses_count":2,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png","profile_background_image_url_https":"https:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png","profile_background_tile":false,"profile_image_url":"http:\\/\\/abs.twimg.com\\/sticky\\/default_profile_images\\/default_profile_0_normal.png","profile_image_url_https":"https:\\/\\/abs.twimg.com\\/sticky\\/default_profile_images\\/default_profile_0_normal.png","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":false,"default_profile":true,"default_profile_image":true,"following":false,"follow_request_sent":false,"notifications":false}'\n      read: true\n      uri: \n      decode_content: true\n      socket: \n      body_exist: true\n  raw_info: !ruby/hash:OmniAuth::AuthHash\n    id: 1458663703\n    id_str: '1458663703'\n    name: DoHoon Kim\n    screen_name: KimSmg\n    location: ''\n    description: ''\n    url: \n    entities: !ruby/hash:OmniAuth::AuthHash\n      description: !ruby/hash:OmniAuth::AuthHash\n        urls: []\n    protected: false\n    followers_count: 0\n    friends_count: 0\n    listed_count: 0\n    created_at: Sun May 26 03:34:44 +0000 2013\n    favourites_count: 0\n    utc_offset: -25200\n    time_zone: Pacific Time (US & Canada)\n    geo_enabled: false\n    verified: false\n    statuses_count: 2\n    lang: en\n    contributors_enabled: false\n    is_translator: false\n    is_translation_enabled: false\n    profile_background_color: C0DEED\n    profile_background_image_url: http://abs.twimg.com/images/themes/theme1/bg.png\n    profile_background_image_url_https: https://abs.twimg.com/images/themes/theme1/bg.png\n    profile_background_tile: false\n    profile_image_url: http://abs.twimg.com/sticky/default_profile_images/default_profile_0_normal.png\n    profile_image_url_https: https://abs.twimg.com/sticky/default_profile_images/default_profile_0_normal.png\n    profile_link_color: 0084B4\n    profile_sidebar_border_color: C0DEED\n    profile_sidebar_fill_color: DDEEF6\n    profile_text_color: '333333'\n    profile_use_background_image: true\n    has_extended_profile: false\n    default_profile: true\n    default_profile_image: true\n    following: false\n    follow_request_sent: false\n    notifications: false\n	coffee-beans-owl.jpg	dohoon
+3	dsfdasf	dsafdsaf	tony1@gmail.com	$2a$10$cAVkFnPx/35YVKOfE5ttiujhwadYGPTjkB0Gy1vfNIM4jDZEzSr4C	2016-04-13 23:48:54.759514	2016-04-13 23:48:54.759514	\N	\N	\N	\N	\N	\N	dsfdasf
+1	Tam	Kbeili	tony@gmail.com	$2a$10$FJ7TJBhUZCrMWkzUS5vp..roBiWSH9sZF3XgomOriAk//8K34LMji	2016-04-02 22:56:43.117693	2016-04-15 01:48:10.349288	\N	\N	\N	\N	\N	NuEgX0.jpg	tony
+4	dsaf	sdafsa	tony3@gmail.com	$2a$10$omz5tIqHSdS/d3EI7zZDIuPKmdM5/XjL1sRpbjvemPPp/Hgp7Br7q	2016-04-15 07:41:54.516248	2016-04-15 07:41:54.516248	\N	\N	\N	\N	\N	\N	dsaf
+\.
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: DHK
+--
+
+SELECT pg_catalog.setval('users_id_seq', 4, true);
+
+
+--
+-- Name: bean_likes_pkey; Type: CONSTRAINT; Schema: public; Owner: DHK; Tablespace: 
+--
+
+ALTER TABLE ONLY bean_likes
+    ADD CONSTRAINT bean_likes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: bean_shops_pkey; Type: CONSTRAINT; Schema: public; Owner: DHK; Tablespace: 
+--
+
+ALTER TABLE ONLY bean_shops
+    ADD CONSTRAINT bean_shops_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: beans_pkey; Type: CONSTRAINT; Schema: public; Owner: DHK; Tablespace: 
+--
+
+ALTER TABLE ONLY beans
+    ADD CONSTRAINT beans_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: comments_pkey; Type: CONSTRAINT; Schema: public; Owner: DHK; Tablespace: 
+--
+
+ALTER TABLE ONLY comments
+    ADD CONSTRAINT comments_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: friendly_id_slugs_pkey; Type: CONSTRAINT; Schema: public; Owner: DHK; Tablespace: 
+--
+
+ALTER TABLE ONLY friendly_id_slugs
+    ADD CONSTRAINT friendly_id_slugs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: recipe_likes_pkey; Type: CONSTRAINT; Schema: public; Owner: DHK; Tablespace: 
+--
+
+ALTER TABLE ONLY recipe_likes
+    ADD CONSTRAINT recipe_likes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: recipes_pkey; Type: CONSTRAINT; Schema: public; Owner: DHK; Tablespace: 
+--
+
+ALTER TABLE ONLY recipes
+    ADD CONSTRAINT recipes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: shop_likes_pkey; Type: CONSTRAINT; Schema: public; Owner: DHK; Tablespace: 
+--
+
+ALTER TABLE ONLY shop_likes
+    ADD CONSTRAINT shop_likes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: shops_pkey; Type: CONSTRAINT; Schema: public; Owner: DHK; Tablespace: 
+--
+
+ALTER TABLE ONLY shops
+    ADD CONSTRAINT shops_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tastes_pkey; Type: CONSTRAINT; Schema: public; Owner: DHK; Tablespace: 
+--
+
+ALTER TABLE ONLY tastes
+    ADD CONSTRAINT tastes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: DHK; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_bean_likes_on_bean_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_bean_likes_on_bean_id ON bean_likes USING btree (bean_id);
+
+
+--
+-- Name: index_bean_likes_on_user_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_bean_likes_on_user_id ON bean_likes USING btree (user_id);
+
+
+--
+-- Name: index_bean_shops_on_bean_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_bean_shops_on_bean_id ON bean_shops USING btree (bean_id);
+
+
+--
+-- Name: index_bean_shops_on_shop_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_bean_shops_on_shop_id ON bean_shops USING btree (shop_id);
+
+
+--
+-- Name: index_beans_on_slug; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_beans_on_slug ON beans USING btree (slug);
+
+
+--
+-- Name: index_beans_on_user_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_beans_on_user_id ON beans USING btree (user_id);
+
+
+--
+-- Name: index_comments_on_commentable_type_and_commentable_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_comments_on_commentable_type_and_commentable_id ON comments USING btree (commentable_type, commentable_id);
+
+
+--
+-- Name: index_comments_on_user_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_comments_on_user_id ON comments USING btree (user_id);
+
+
+--
+-- Name: index_friendly_id_slugs_on_slug_and_sluggable_type; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_friendly_id_slugs_on_slug_and_sluggable_type ON friendly_id_slugs USING btree (slug, sluggable_type);
+
+
+--
+-- Name: index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope ON friendly_id_slugs USING btree (slug, sluggable_type, scope);
+
+
+--
+-- Name: index_friendly_id_slugs_on_sluggable_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_friendly_id_slugs_on_sluggable_id ON friendly_id_slugs USING btree (sluggable_id);
+
+
+--
+-- Name: index_friendly_id_slugs_on_sluggable_type; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_friendly_id_slugs_on_sluggable_type ON friendly_id_slugs USING btree (sluggable_type);
+
+
+--
+-- Name: index_recipe_likes_on_recipe_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_recipe_likes_on_recipe_id ON recipe_likes USING btree (recipe_id);
+
+
+--
+-- Name: index_recipe_likes_on_user_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_recipe_likes_on_user_id ON recipe_likes USING btree (user_id);
+
+
+--
+-- Name: index_recipes_on_slug; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_recipes_on_slug ON recipes USING btree (slug);
+
+
+--
+-- Name: index_recipes_on_user_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_recipes_on_user_id ON recipes USING btree (user_id);
+
+
+--
+-- Name: index_shop_likes_on_shop_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_shop_likes_on_shop_id ON shop_likes USING btree (shop_id);
+
+
+--
+-- Name: index_shop_likes_on_user_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_shop_likes_on_user_id ON shop_likes USING btree (user_id);
+
+
+--
+-- Name: index_shops_on_slug; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_shops_on_slug ON shops USING btree (slug);
+
+
+--
+-- Name: index_shops_on_user_id; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_shops_on_user_id ON shops USING btree (user_id);
+
+
+--
+-- Name: index_users_on_slug; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_users_on_slug ON users USING btree (slug);
+
+
+--
+-- Name: index_users_on_uid_and_provider; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE INDEX index_users_on_uid_and_provider ON users USING btree (uid, provider);
+
+
+--
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: DHK; Tablespace: 
+--
+
+CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: fk_rails_03de2dc08c; Type: FK CONSTRAINT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY comments
+    ADD CONSTRAINT fk_rails_03de2dc08c FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
+-- Name: fk_rails_1c14c546e4; Type: FK CONSTRAINT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY bean_shops
+    ADD CONSTRAINT fk_rails_1c14c546e4 FOREIGN KEY (shop_id) REFERENCES shops(id);
+
+
+--
+-- Name: fk_rails_86b2d6f9d3; Type: FK CONSTRAINT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY shop_likes
+    ADD CONSTRAINT fk_rails_86b2d6f9d3 FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
+-- Name: fk_rails_9606fce865; Type: FK CONSTRAINT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY recipes
+    ADD CONSTRAINT fk_rails_9606fce865 FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
+-- Name: fk_rails_999f5ba7e7; Type: FK CONSTRAINT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY recipe_likes
+    ADD CONSTRAINT fk_rails_999f5ba7e7 FOREIGN KEY (recipe_id) REFERENCES recipes(id);
+
+
+--
+-- Name: fk_rails_9a4de899e3; Type: FK CONSTRAINT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY bean_likes
+    ADD CONSTRAINT fk_rails_9a4de899e3 FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
+-- Name: fk_rails_9e33e91dc0; Type: FK CONSTRAINT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY shop_likes
+    ADD CONSTRAINT fk_rails_9e33e91dc0 FOREIGN KEY (shop_id) REFERENCES shops(id);
+
+
+--
+-- Name: fk_rails_a8a42f79dd; Type: FK CONSTRAINT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY recipe_likes
+    ADD CONSTRAINT fk_rails_a8a42f79dd FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
+-- Name: fk_rails_bbda09dc47; Type: FK CONSTRAINT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY shops
+    ADD CONSTRAINT fk_rails_bbda09dc47 FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
+-- Name: fk_rails_c225253458; Type: FK CONSTRAINT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY bean_shops
+    ADD CONSTRAINT fk_rails_c225253458 FOREIGN KEY (bean_id) REFERENCES beans(id);
+
+
+--
+-- Name: fk_rails_da90e3def5; Type: FK CONSTRAINT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY bean_likes
+    ADD CONSTRAINT fk_rails_da90e3def5 FOREIGN KEY (bean_id) REFERENCES beans(id);
+
+
+--
+-- Name: fk_rails_e992c943a2; Type: FK CONSTRAINT; Schema: public; Owner: DHK
+--
+
+ALTER TABLE ONLY beans
+    ADD CONSTRAINT fk_rails_e992c943a2 FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: DHK
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM "DHK";
+GRANT ALL ON SCHEMA public TO "DHK";
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

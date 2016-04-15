@@ -14,4 +14,3 @@
 
 # Ignore Api keys
 config/secrets.yml
-config/initializers/carrierwave.rb
