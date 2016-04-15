@@ -12,6 +12,7 @@ class BeansController < ApplicationController
     if @bean.save
       redirect_to beans_path, alert: "Bean created"
     else
+      byebug
       flash[:alert] = "Unable to create been"
       render :new
     end
