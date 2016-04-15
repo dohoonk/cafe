@@ -65,6 +65,7 @@ class UsersController < ApplicationController
    # /====================================
        # Recommendation algorithm
    # ====================================/
+   if current_user.like_beans.length > 1 && current_user.like_recipes.count > 1
    # putting all the taste values from use to array
    @rec_taste = Array.new
    @taste.each_value {|value| @rec_taste.push(value)}
@@ -136,6 +137,7 @@ class UsersController < ApplicationController
     # @recommended_beans = BeanRecommendationEngine.new(current_user).recommended_beans
     taste_graph!
   end
+end
 
   private
 
