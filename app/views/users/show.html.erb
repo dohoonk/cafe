@@ -1,9 +1,8 @@
-<!-- User Info -->
 <div class="container">
   <div class="row">
     <div class="col-lg-6">
       <div class="bean-index-self-img" alt="Fjords">
-        <%= image_tag current_user.avatar_url(:thumb).to_s %>
+        <%= image_tag current_user.avatar_url(:thumb) %>
       </div>
     </div>
     <hr>
@@ -20,17 +19,16 @@
     </div>
   </div>
 </div>
-<!-- User Info End -->
 
-<!-- Likes -->
+
 <div class="container" id="user-show-content">
   <div class="row">
     <h2>Liked Beans</h2>
     <% @beans.each do |f| %>
-      <div class="col-lg-4">
-        <%= f.name %>
-        <%= link_to image_tag(f.beanimg_url(:thumb).to_s), bean_path(f) %>
-      </div>
+    <div class="col-lg-4">
+      <%= f.name %>
+      <%= link_to image_tag(f.beanimg_url(:thumb).to_s), bean_path(f) %>
+    </div>
     <% end %>
   </div>
 </div>
@@ -40,36 +38,33 @@
   <div class="row">
     <h2>Liked Shops</h2>
     <% @shops.each do |f| %>
-      <div class="col-lg-4">
-        <%= f.name %>
-        <%= link_to image_tag(f.cafeimg_url(:thumb).to_s), shop_path(f) %>
-      </div>
+    <div class="col-lg-4">
+      <%= f.name %>
+      <%= link_to image_tag(f.cafeimg_url(:thumb).to_s), shop_path(f) %>
+    </div>
     <% end %>
   </div>
 </div>
 <hr>
-
 
 <div class="container" id="user-show-content">
   <div class="row">
     <h2>Liked Recipes</h2>
     <% @recipes.each do |f| %>
-      <div class="col-lg-4">
-        <%= f.name %>
-        <%= link_to image_tag(f.recipeimg_url(:thumb).to_s), recipe_path(f) %>
-      </div>
+    <div class="col-lg-4">
+      <%= f.name %>
+      <%= link_to image_tag(f.recipeimg_url(:thumb).to_s), recipe_path(f) %>
+    </div>
     <% end %>
   </div>
 </div>
 <hr>
-<!-- Likes End -->
 
 <div class="container">
-  <% if @recommended_beans != nil %>
-    <h2>Recommendation</h2>
-	  <div class="row">
-		  <div class="col-md-4">
-        <h3>Taste bar <span class="semi-bold"></span></h3>
+  <h2>Recommendation</h2>
+	<div class="row">
+		<div class="col-md-4">
+      <h3>Taste bar <span class="semi-bold"></span></h3>
         <br>
         <div class="col-md-11">
           <p>Sweet</p>
@@ -91,42 +86,23 @@
         </div>
       </div>
 	</div>
+</div>
 <hr>
-</div>
-<% else %>
-  <div class="container">
-    <h2>Recommendation</h2>
-	  <div class="row">
-		  <div class="col-md-4">
-        <h3>Taste bar <span class="semi-bold"></span></h3>
-        <br>
-        <div class="col-md-11">
-          <p> There is no beeans you have liked to generate a graph</p>
-        </div>
-      </div>
+<div class="container">
+<!-- <%= @taste %> -->
+<div class="container" id="user-show-content">
+  <div class="row">
+    <h2>Check out these beans</h2>
+    <% @recommended_beans.each do |f| %>
+    <div class="col-lg-4">
+      <%= link_to f.name, bean_path(f) %>
+      <%= link_to image_tag(f.beanimg_url(:thumb)), bean_path(f) %>
     </div>
-	</div>
-  <hr>
-</div>
-<% end %>
-
-<% if @recommended_beans != nil %>
-  <div class="container">
-  <!-- <%= @taste %> -->
-  <div class="container" id="user-show-content">
-    <div class="row">
-      <h2>Check out these beans</h2>
-      <% @recommended_beans.each do |f| %>
-        <div class="col-lg-4">
-          <%= link_to f.name, bean_path(f) %>
-          <%= link_to image_tag(f.beanimg_url(:thumb)), bean_path(f) %>
-        </div>
-      <hr>
-      <% end %>
+    <% end %>
   </div>
 </div>
+<hr>
 </div>
-  <% end %>
 
 <!-- <div class="container" id="user-show-content">
   <div class="row">
