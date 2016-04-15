@@ -51,7 +51,11 @@ class UsersController < ApplicationController
    end
 
    @taste.each do |key,value|
-     @taste[key] = value / @counter
+    if value != 0
+      @taste[key] = value / @counter
+    else
+      @taste[key] = value
+    end
    end
 
    @sweet = (@taste[:sweet] * 10).to_s + "%"
@@ -159,7 +163,11 @@ class UsersController < ApplicationController
     end
 
     @taste.each do |key,value|
-      @taste[key] = value / @counter
+      if value != 0
+        @taste[key] = value / @counter
+      else
+        @taste[key] = value
+      end
     end
 
     @sweet = (@taste[:sweet] * 10).to_s + "%"
