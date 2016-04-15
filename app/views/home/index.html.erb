@@ -46,7 +46,7 @@
 
   <!-- popular shops/recipes -->
 <div class="container" id="bean-home">
-  <div class="container cirlce">
+  <div class="container">
     <h2 class="no-span">These are the beans you are looking for</h2>
     <div class="row">
       <% @beans.each do |f| %>
@@ -58,10 +58,10 @@
   </div>
 </div>
 
-<div class="container" id="cafe-home">
-  <div class="container circle">
+<div class="container" id="bean-home">
+  <div class="container">
+    <h2 class="no-span">Places to bean</h2>
     <div class="row">
-      <h2 class="no-span">Places to bean</h2>
       <% @shops.each do |f| %>
       <div class="col-lg-4">
         <div class="circle hvr-grow"><%= link_to image_tag(f.cafeimg_url(:thumb)), shop_path(f) %><%= f.name %></div>
@@ -72,7 +72,7 @@
 </div>
 
 <div class="container" id="recipe-home">
-  <div class="container cirlce">
+  <div class="container">
     <div class="row">
       <h2 class="no-span">Trending drinks</h2>
       <% @recipes.each do |f| %>

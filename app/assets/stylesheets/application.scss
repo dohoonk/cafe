@@ -103,8 +103,12 @@ video {
   min-height: 100px;
 }
 // footer
-
-
+.sign_up {
+  min-height: 1000px;
+}
+.sign_in {
+  min-height: 1000px;
+}
 /*
 =============================================
 Bean Index page
@@ -152,6 +156,8 @@ Bean Index page
 
 /*--- Bean footer ---*/
 footer {
+  bottom: 0;
+  width: 100%;
   min-height: 50px;
   background-color: #AC8F80;
 
