@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col s12">
-      <%= simple_form_for @bean do |f| %>
+  <div class="col s12">
+    <%= simple_form_for @bean do |f| %>
       <div class="row">
         <div class="input-field col s6">
           <%= f.input :name, class:"first_name"%>
@@ -52,18 +52,3 @@
       <% end %>
     </form>
   </div>
-
-  <!-- <%= simple_form_for @bean do |f| %>
-    <div class="well">
-      <%= f.input :name %>
-      <%= f.input :region %>
-      <%= f.input :producer %>
-      <%=f.input :roast, collection: [ "Dark", "Medium", "Light"] %>
-      <%= f.input :sweet, collection: 0..10  %>
-      <%= f.input :fruity, collection: 0..10  %>
-      <%= f.input :bitter, collection: 0..10  %>
-      <%= f.input :chocolate, collection: 0..10  %>
-      <%= f.input :beanimg, as: :file %>
-      <%= f.button :submit, class: "btn btn-primary"  %>
-    </div>
-  <% end %> -->
