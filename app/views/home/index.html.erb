@@ -50,7 +50,7 @@
     <h2 class="no-span">These are the beans you are looking for</h2>
     <div class="row">
       <% @beans.each do |f| %>
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="circle hvr-grow"><%= link_to image_tag(f.beanimg_url(:thumb)), bean_path(f) %><%= f.name %></div>
       </div>
       <% end %>
@@ -63,7 +63,7 @@
     <h2 class="no-span">Places to bean</h2>
     <div class="row">
       <% @shops.each do |f| %>
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="circle hvr-grow"><%= link_to image_tag(f.cafeimg_url(:thumb)), shop_path(f) %><%= f.name %></div>
       </div>
       <% end %>
@@ -76,7 +76,7 @@
     <div class="row">
       <h2 class="no-span">Trending drinks</h2>
       <% @recipes.each do |f| %>
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="circle hvr-grow"><%= link_to image_tag(f.recipeimg_url(:thumb)), recipe_path(f) %><%= f.name %></div>
       </div>
       <% end %>
